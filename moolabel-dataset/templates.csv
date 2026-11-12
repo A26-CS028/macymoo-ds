@@ -1,0 +1,97 @@
+template_id,split,labels,pattern
+T01,train,saus_terpisah,{saus} dipisah {ya}
+T02,train,saus_terpisah,tolong {saus} dipisah {kak}
+T03,train,saus_terpisah,{saus} jangan dicampur {ya}
+T04,train,saus_terpisah,minta {saus} taruh di wadah sendiri {kak}
+T05,train,saus_terpisah,{saus} pisahin aja {kak}
+T06,test,saus_terpisah,{saus} dikasih terpisah dari makaroninya bisa {kak}?
+T07,test,saus_terpisah,"biar ga lembek, {saus} jangan disiram dulu {ya}"
+T08,test,saus_terpisah,{saus} taruh di cup kecil aja {kak}
+T09,train,alergi,saya alergi {alergen} {kak}
+T10,train,alergi,alergi {alergen} {ya}
+T11,train,alergi,"aku alergi {alergen}, tolong alat masaknya dipastikan bersih"
+T12,train,alergi,"mohon perhatian {kak}, ada alergi {alergen}"
+T13,train,alergi,"aku intoleransi laktosa {kak}, mohon diperhatikan"
+T14,test,alergi,anak saya punya alergi {alergen} {kak}
+T15,test,alergi,aku ada riwayat alergi {alergen} {ya}
+T16,test,alergi,"punya intoleransi {alergen}, hati-hati {ya}"
+T17,train,kurangi_bahan,jangan pakai {kurang} {ya}
+T18,train,kurangi_bahan,{kurang}nya dikit aja {kak}
+T19,train,kurangi_bahan,tanpa {kurang} {kak}
+T20,train,kurangi_bahan,{kurang} gak usah {ya}
+T21,train,kurangi_bahan,jangan terlalu {rasa} {ya} {kak}
+T22,test,kurangi_bahan,{kurang} skip aja {kak}
+T23,test,kurangi_bahan,kalau bisa {kurang} dikurangi setengah
+T24,test,kurangi_bahan,aku gak bisa makan {kurang} {kak}
+T25,train,tambah_bahan,{tambah}nya dibanyakin {dong}
+T26,train,tambah_bahan,minta extra {tambah} {ya}
+T27,train,tambah_bahan,tambahin {tambah} {kak}
+T28,train,tambah_bahan,{tambah}nya yang banyak {ya}
+T29,train,tambah_bahan,porsi {tambah} dilebihin {dong}
+T30,test,tambah_bahan,boleh lebihin {tambah}? nanti aku tambah bayar
+T31,test,tambah_bahan,double {tambah} {dong}
+T32,test,tambah_bahan,{tambah} agak dibanyakin kalau bisa {kak}
+T33,train,kemasan,dibungkus terpisah per porsi {ya}
+T34,train,kemasan,"bungkus satu-satu {ya}, buat {acara}"
+T35,train,kemasan,packing yang rapi soalnya buat {acara}
+T36,train,kemasan,pisah per box {ya} {kak}
+T37,train,kemasan,"buat {acara}, tolong dibungkus rapi {kak}"
+T38,test,kemasan,tolong pakai box yang bisa ditumpuk {kak}
+T39,test,kemasan,"minta dipisah plastiknya, mau dibagi ke {acara}"
+T40,test,kemasan,kemasannya dobel biar ga tumpah {ya}
+T41,train,alat_makan,minta {alat} {n} {ya}
+T42,train,alat_makan,{alat}nya jangan lupa {kak}
+T43,train,alat_makan,gak usah pakai {alat} {ya}
+T44,train,alat_makan,tolong sertain {alat} {n}
+T45,train,alat_makan,alat makannya {n} {ya}
+T46,test,alat_makan,"ga perlu alat makan {kak}, mau dimakan di rumah"
+T47,test,alat_makan,sumpit ada ga {kak}? kalau ada minta {n}
+T48,test,alat_makan,cutlery-nya {n} set {ya}
+T49,train,waktu_antar,kirim sebelum jam {jam} {ya}
+T50,train,waktu_antar,tolong sampai jam {jam}an {kak}
+T51,train,waktu_antar,"antar pagi {ya}, soalnya mau {kegiatan}"
+T52,train,waktu_antar,kirim sebelum jam {jam} soalnya mau {kegiatan}
+T53,train,waktu_antar,sampainya jam {jam} pas {ya}
+T54,test,waktu_antar,jangan lewat dari jam {jam} {kak}
+T55,test,waktu_antar,aku cuma di rumah sampai jam {jam}
+T56,test,waktu_antar,usahain datang sebelum {kegiatan} {ya}
+T57,train,titip_antar,"kalau saya belum keluar, titip ke {penerima}"
+T58,train,titip_antar,titipin ke {penerima} aja {kak}
+T59,train,titip_antar,taruh di {tempat} {ya}
+T60,train,titip_antar,titip {penerima} aja kalau aku belum bangun
+T61,train,titip_antar,langsung kasih ke {penerima} {ya}
+T62,test,titip_antar,"kalau ga ada orang, kasih ke {penerima}"
+T63,test,titip_antar,"boleh dititip di {tempat}, nanti aku ambil"
+T64,test,titip_antar,serahin ke {penerima} aja {kak}
+T65,train,saus_terpisah+alat_makan,"{saus} dipisah {ya}, {alat}nya jangan lupa"
+T66,train,saus_terpisah+kemasan+alat_makan,"saus dipisah, bungkus terpisah, sendok {n}"
+T67,train,alergi+kurangi_bahan,jangan pakai mentega karena alergi susu {kak}
+T68,train,alergi+kurangi_bahan,"tanpa {alergen} {ya}, aku alergi"
+T69,train,waktu_antar+titip_antar,"kirim jam {jam} pagi, titip {penerima} kalau belum bangun"
+T70,train,tambah_bahan+kurangi_bahan,"{tambah_x}nya banyakin, jangan pakai {kurang_x}"
+T71,train,kemasan+waktu_antar,"dibungkus per porsi {ya}, sampai sebelum jam {jam}"
+T72,train,alergi+alat_makan,"alergi {alergen} {kak}, sama minta {alat} {n}"
+T73,train,tambah_bahan+saus_terpisah,{tambah_x}nya dibanyakin tapi {saus} dipisah
+T74,train,kurangi_bahan+titip_antar,"{kurang_x}nya dikit aja, kalau aku ga ada titip ke {penerima}"
+T75,train,kemasan+titip_antar,"bungkus rapi buat {acara}, taruh di {tempat} {ya}"
+T76,train,saus_terpisah+tambah_bahan+waktu_antar,"{saus} dipisah, {tambah_x} dibanyakin, sampai jam {jam}an {ya}"
+T77,test,saus_terpisah+kurangi_bahan,"{saus} taruh di cup kecil, {kurang_x} skip aja"
+T78,test,alergi+waktu_antar,"anak saya alergi {alergen}, usahain datang sebelum {kegiatan}"
+T79,test,kemasan+alat_makan,"kemasannya dobel biar ga tumpah, cutlery {n} set"
+T80,test,tambah_bahan+titip_antar,"double {tambah_x} {dong}, kalau ga ada orang kasih ke {penerima}"
+T81,test,kurangi_bahan+alat_makan,"{kurang_x} ga usah, {alat} {n} aja"
+T82,test,waktu_antar+titip_antar+kemasan,"aku cuma di rumah sampai jam {jam}, kalau lewat titip {penerima}, plastiknya dipisah per porsi"
+T83,test,alergi+saus_terpisah,"punya riwayat alergi {alergen}, {saus} dikasih terpisah {ya}"
+T84,test,tambah_bahan+alat_makan,"{tambah_x} agak dibanyakin, ga perlu alat makan {kak}"
+T85,train,(tidak berlabel),"makasih {kak}, semangat jualannya"
+T86,train,(tidak berlabel),lagi diet {kak}
+T87,train,(tidak berlabel),pedes banget {ya} {kak}
+T88,train,(tidak berlabel),ayamnya pakai paha aja {kak}
+T89,train,(tidak berlabel),kirim besok aja {ya}
+T90,train,(tidak berlabel),tolong alat masaknya dipastikan bersih {ya}
+T91,train,(tidak berlabel),"udah langganan nih, enak banget {kak}"
+T92,test,(tidak berlabel),"first time order, penasaran rasanya {kak}"
+T93,test,(tidak berlabel),"maag, jangan pedas {ya}"
+T94,test,(tidak berlabel),ganti ke ayam dada {ya} {kak}
+T95,test,(tidak berlabel),semoga laris {kak}
+T96,test,(tidak berlabel),jangan terlalu pedas {kak}
