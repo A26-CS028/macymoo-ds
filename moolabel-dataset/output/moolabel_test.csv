@@ -1,0 +1,162 @@
+note_id,note,template_id,split,saus_terpisah,alergi,kurangi_bahan,tambah_bahan,kemasan,alat_makan,waktu_antar,titip_antar
+317,"semoga laris ka",T95,test,0,0,0,0,0,0,0,0
+318,"jangan leawt dari jam 11",T54,test,0,0,0,0,0,0,1,0
+319,"Double kornet dong, kalau ga ada orang kasih ke ibu kos",T80,test,0,0,0,1,0,0,0,1
+320,"first time order, penasaran rasanya",T92,test,0,0,0,0,0,0,0,0
+321,"Aku cuma di rumah sampai jam 6",T55,test,0,0,0,0,0,0,1,0
+322,"First time order, penasaran rasanya kak",T92,test,0,0,0,0,0,0,0,0
+323,"tolong pakai box yg bisa ditumpuk kaa",T38,test,0,0,0,0,1,0,0,0
+324,"saus kejunya taruh di cup kecil, brokoli skip aja",T77,test,1,0,1,0,0,0,0,0
+325,"saosnya taruh di cup kecil aja ka",T08,test,1,0,0,0,0,0,0,0
+326,"daun bawang skip aja kaa 🙂",T22,test,0,0,1,0,0,0,0,0
+327,"aku ada riwayat alergi gluten yaaa",T15,test,0,1,0,0,0,0,0,0
+328,"aku cuma di rumah sampai jam 12 🙂",T55,test,0,0,0,0,0,0,1,0
+329,"double saus pls",T31,test,0,0,0,1,0,0,0,0
+330,"usahain datang sebelum kerja yaaa",T56,test,0,0,0,0,0,0,1,0
+331,"aku cuma di rumah sampai jam 11 ❤️",T55,test,0,0,0,0,0,0,1,0
+332,"sumpit ada ga kaa? kalau ada minta 1",T47,test,0,0,0,0,0,1,0,0
+333,"sumpit ada ga kaa? kalau ada minta dua 🙏",T47,test,0,0,0,0,0,1,0,0
+334,"saus keju agak dibanyakin kalau bisa min 😊",T32,test,0,0,0,1,0,0,0,0
+335,"tolong pake box yg bs ditumpuk kakkkk",T38,test,0,0,0,0,1,0,0,0
+336,"biar ga lembek, saosnya jangan disiram dulu",T07,test,1,0,0,0,0,0,0,0
+337,"aku gak bisa makan daun bawang",T24,test,0,0,1,0,0,0,0,0
+338,"kalau ga ada orang, kasih ke ibu kos",T62,test,0,0,0,0,0,0,0,1
+339,"anak saya alergi kacang tanah, usahain datang sebelum rapat",T78,test,0,1,0,0,0,0,1,0
+340,"sumpit ada ga? kalau ada minta tiga",T47,test,0,0,0,0,0,1,0,0
+341,"klaau ga ada orang, kasih ke pos satpam",T62,test,0,0,0,0,0,0,0,1
+342,"Kemasannya dobel biar ga tumpah, cutlery 4 set",T79,test,0,0,0,0,1,1,0,0
+343,"Saus kejunya dikasih terpisah dari makaroninya bisa?",T06,test,1,0,0,0,0,0,0,0
+344,"anak saya alergi telur, usahain datang sebelum kerja",T78,test,0,1,0,0,0,0,1,0
+345,"Jangan terlalu pedas ka",T96,test,0,0,0,0,0,0,0,0
+346,"Aku gak bisa makan micin kakak",T24,test,0,0,1,0,0,0,0,0
+347,"cutlery-nya dua set",T48,test,0,0,0,0,0,1,0,0
+348,"kornet agak dibanyakin, ga perlu alat makan",T84,test,0,0,0,1,0,1,0,0
+349,"ganti ke ayam dada yah kak",T94,test,0,0,0,0,0,0,0,0
+350,"anak saya alergi kacang, usahain datang sebelum kerja",T78,test,0,1,0,0,0,0,1,0
+351,"keju agak dibanyakin, ga perlu alat makan",T84,test,0,0,0,1,0,1,0,0
+352,"ganti ke ayam dada ya",T94,test,0,0,0,0,0,0,0,0
+353,"double oregano",T31,test,0,0,0,1,0,0,0,0
+354,"tolong pakai box yg bs ditumpuk kaa",T38,test,0,0,0,0,1,0,0,0
+355,"keju agak dibanyakin, ga perlu alat makan kaa",T84,test,0,0,0,1,0,1,0,0
+356,"ganti ke ayam dada kak",T94,test,0,0,0,0,0,0,0,0
+357,"Saosnya taruh di cup kecil aja min 🙏",T08,test,1,0,0,0,0,0,0,0
+358,"boleh lebihin keju? nanti aku tambah bayar 🙏",T30,test,0,0,0,1,0,0,0,0
+359,"punya riwayat alergi kacang, sausnya dikasih terpisah",T83,test,1,1,0,0,0,0,0,0
+360,"biar ga lembek, saus jgn disiram dulu yah",T07,test,1,0,0,0,0,0,0,0
+361,"usahain datang sebelum rapat yah",T56,test,0,0,0,0,0,0,1,0
+362,"Saus taruh di cup kecil, micin skip aj",T77,test,1,0,1,0,0,0,0,0
+363,"Biar ga lembek, sausnya jangan disiram dulu yah",T07,test,1,0,0,0,0,0,0,0
+364,"micin ga usah, sendok garpu 3 aja 🙂",T81,test,0,0,1,0,0,1,0,0
+365,"punya riwayat alergi gluten, sausnya dikashi terpisah yaa",T83,test,1,1,0,0,0,0,0,0
+366,"aku ada riwayat alergi seafood yah",T15,test,0,1,0,0,0,0,0,0
+367,"punya riwayat alergi telur, kejunya dikasih terpisah yaaaa",T83,test,1,1,0,0,0,0,0,0
+368,"semoga lrais",T95,test,0,0,0,0,0,0,0,0
+369,"boleh dititip di pos satpam, nanti aku ambil",T63,test,0,0,0,0,0,0,0,1
+370,"punya intoleransi seafood, hati-hati yaaa",T16,test,0,1,0,0,0,0,0,0
+371,"oregano agak dibanyakin, ga perlu alat makan kakak 🙂",T84,test,0,0,0,1,0,1,0,0
+372,"double oregano pls, kalo ga ada orang kasih ke penjaga kos",T80,test,0,0,0,1,0,0,0,1
+373,"serahin ke tetangga sebelah aj ka",T64,test,0,0,0,0,0,0,0,1
+374,"Brokoli ga usah, sendok garpu 1 aja 🙏",T81,test,0,0,1,0,0,1,0,0
+375,"jangan terlalu pedas kaa",T96,test,0,0,0,0,0,0,0,0
+376,"saus dikasih terpisah dari makaroninya bisa kak?",T06,test,1,0,0,0,0,0,0,0
+377,"Mayo ga usah, garpu 3 aja",T81,test,0,0,1,0,0,1,0,0
+378,"first time order, penasaran rasanya kakak",T92,test,0,0,0,0,0,0,0,0
+379,"Aku cuma di rumah sampai jam 6, kalau lewat titip resepsionis, plastiknya dipisah per porsi",T82,test,0,0,0,0,1,0,1,1
+380,"saus kejunya taruh di cup kecil, mayo skip aja",T77,test,1,0,1,0,0,0,0,0
+381,"Minta dipisah plastiknya, mau dibagi ke arisan",T39,test,0,0,0,0,1,0,0,0
+382,"kalau bisa bawang dikurangi setengah",T23,test,0,0,1,0,0,0,0,0
+383,"kemasannya dobel biar ga tumpah, cutlery dua set 😊",T79,test,0,0,0,0,1,1,0,0
+384,"Sumpit ada ga kak? kalau ada minta 3",T47,test,0,0,0,0,0,1,0,0
+385,"usahain datang sebelum kuliah yah",T56,test,0,0,0,0,0,0,1,0
+386,"jangan terlalu pedas kak 🙏",T96,test,0,0,0,0,0,0,0,0
+387,"serahin ke resepsionis aja min",T64,test,0,0,0,0,0,0,0,1
+388,"ga perlu alat makan kakak, mau dimakan di rumah",T46,test,0,0,0,0,0,1,0,0
+389,"aku ada riwayat alergi seafood yaaa",T15,test,0,1,0,0,0,0,0,0
+390,"Double kornet pls ❤️",T31,test,0,0,0,1,0,0,0,0
+391,"Kalau bisa keju dikuranig setengah",T23,test,0,0,1,0,0,0,0,0
+392,"Double ayam dong, kalau ga ada orang kasih ke pos satpam 🙂",T80,test,0,0,0,1,0,0,0,1
+393,"semoga laris kakak",T95,test,0,0,0,0,0,0,0,0
+394,"first time order, peansaran rasanya",T92,test,0,0,0,0,0,0,0,0
+395,"Double saus ya",T31,test,0,0,0,1,0,0,0,0
+396,"kalau ga ada orang, kasih ke resepsionis",T62,test,0,0,0,0,0,0,0,1
+397,"Bawang ga usah, garpu 2 aja",T81,test,0,0,1,0,0,1,0,0
+398,"Kemasannya dobel biar ga tumpah, cutlery 1 set",T79,test,0,0,0,0,1,1,0,0
+399,"maag, jgn pedas ya 🙏",T93,test,0,0,0,0,0,0,0,0
+400,"ga perlu alat makan kaa, mau dimakan di rumah ❤️",T46,test,0,0,0,0,0,1,0,0
+401,"aku ada riwayat alergi kacang tanah yaa",T15,test,0,1,0,0,0,0,0,0
+402,"kejunya taruh di cup kecil, bawang skip aja",T77,test,1,0,1,0,0,0,0,0
+403,"searhin ke satpam aja kak",T64,test,0,0,0,0,0,0,0,1
+404,"Boleh lebihin bawang goreng? nanti aku tambah bayar",T30,test,0,0,0,1,0,0,0,0
+405,"Aku cuma di rumah sampai jam 12, kalau lewat titip resepsionis, plastiknya dipisah per porsi",T82,test,0,0,0,0,1,0,1,1
+406,"Kemasannya dobel biar ga tumpah ya",T40,test,0,0,0,0,1,0,0,0
+407,"cutlery-nya 4 set yaaa",T48,test,0,0,0,0,0,1,0,0
+408,"semoga laris",T95,test,0,0,0,0,0,0,0,0
+409,"boleh dititip di depan pintu, nanti aku ambil 🙏",T63,test,0,0,0,0,0,0,0,1
+410,"Kejunya dikasih terpisah dari makaroninya bisa kakak?",T06,test,1,0,0,0,0,0,0,0
+411,"saus kejunya taruh di cup kecil aj kakak",T08,test,1,0,0,0,0,0,0,0
+412,"punya intoleransi udang, hati-hati",T16,test,0,1,0,0,0,0,0,0
+413,"kemasannya dobel biar ga tumpah yaa",T40,test,0,0,0,0,1,0,0,0
+414,"anak saya punya alergi seafood ka",T14,test,0,1,0,0,0,0,0,0
+415,"jangan terlalu pedas min 🙂",T96,test,0,0,0,0,0,0,0,0
+416,"jangan lewat dari jam 11",T54,test,0,0,0,0,0,0,1,0
+417,"saus dikasih terpisah dari makaroninya bisa?",T06,test,1,0,0,0,0,0,0,0
+418,"ganti ke ayam dada yah kaa",T94,test,0,0,0,0,0,0,0,0
+419,"punya riwayat alergi seafood, kejunya dikasih terpisah yaa",T83,test,1,1,0,0,0,0,0,0
+420,"biar ga lembek, saosnya jangan disiram dulu yah",T07,test,1,0,0,0,0,0,0,0
+421,"punya riwayat alergi udang, saus dikasih terpisah yah",T83,test,1,1,0,0,0,0,0,0
+422,"kemasannya dobel biar ga tumpah, cutlery tiga set",T79,test,0,0,0,0,1,1,0,0
+423,"Jangan lewat dari jam 7 kakak 🙂",T54,test,0,0,0,0,0,0,1,0
+424,"keju agak dibanyakin kalo bs",T32,test,0,0,0,1,0,0,0,0
+425,"minta diipsah plastiknya, mau dibagi ke bekal anak",T39,test,0,0,0,0,1,0,0,0
+426,"Kejunya taruh di cup kecil aja kakak",T08,test,1,0,0,0,0,0,0,0
+427,"semoga laris kaa",T95,test,0,0,0,0,0,0,0,0
+428,"maag, jgn pedas ya",T93,test,0,0,0,0,0,0,0,0
+429,"aku cuma di rumah sampai jam 9, kalau lewat titip penjaga kos, plastiknya dipisah per porsi",T82,test,0,0,0,0,1,0,1,1
+430,"ayam agak dibanyakin, ga perlu alat makan ka",T84,test,0,0,0,1,0,1,0,0
+431,"punya intoleransi gluten, hati-hati yaa",T16,test,0,1,0,0,0,0,0,0
+432,"cutlery-nya 1 set yah",T48,test,0,0,0,0,0,1,0,0
+433,"saus taruh di cup kecil, bawang skip aja",T77,test,1,0,1,0,0,0,0,0
+434,"Anak saya punya alergi gluten kaa",T14,test,0,1,0,0,0,0,0,0
+435,"minta dipisah plastiknya, mau dibagi ke ultah",T39,test,0,0,0,0,1,0,0,0
+436,"usahain datang sebelum keraj yah",T56,test,0,0,0,0,0,0,1,0
+437,"mayo skip aj ka",T22,test,0,0,1,0,0,0,0,0
+438,"anak saya punya alergi gluten ka",T14,test,0,1,0,0,0,0,0,0
+439,"boleh lebihin ayam? nanti aku tambah bayar",T30,test,0,0,0,1,0,0,0,0
+440,"kemasannya dobel biar ga tumpah yaaa",T40,test,0,0,0,0,1,0,0,0
+441,"Jangan lewat dari jam 10 ka",T54,test,0,0,0,0,0,0,1,0
+442,"Anak saya punya alergi telur kaa",T14,test,0,1,0,0,0,0,0,0
+443,"cutlery-nya tiga set yaa",T48,test,0,0,0,0,0,1,0,0
+444,"gatni ke ayam dada ya kakak",T94,test,0,0,0,0,0,0,0,0
+445,"micin skip aja",T22,test,0,0,1,0,0,0,0,0
+446,"serahin ke resepsionis aja kak",T64,test,0,0,0,0,0,0,0,1
+447,"ga perlu alat makan kak, mau dimakan di rumah",T46,test,0,0,0,0,0,1,0,0
+448,"saus agak dibanyakin kalau bisa min 🙏🙏",T32,test,0,0,0,1,0,0,0,0
+449,"maag, jangan pedas yaaa ❤️",T93,test,0,0,0,0,0,0,0,0
+450,"First time order, penasaran rasanya kaa",T92,test,0,0,0,0,0,0,0,0
+451,"mayo skip aja ka",T22,test,0,0,1,0,0,0,0,0
+452,"anak saya alergi telur, usahain datang sebelum kuliah",T78,test,0,1,0,0,0,0,1,0
+453,"aku cuma di rumah sampai jam 9, kalau lewat titip satpam, plastiknya dipisah per porsi",T82,test,0,0,0,0,1,0,1,1
+454,"kemasannya dobel biar ga tumpah, cutlery tiga set 🙏🙏",T79,test,0,0,0,0,1,1,0,0
+455,"boleh dititip di pagar, nanti aku ambil 🙏🙏",T63,test,0,0,0,0,0,0,0,1
+456,"aku gak bisa makan makaroni kakak",T24,test,0,0,1,0,0,0,0,0
+457,"punya intoleransi susu, hati-hati yaaa",T16,test,0,1,0,0,0,0,0,0
+458,"double kornet ya, kalau ga ada orang kasih ke pos satpam",T80,test,0,0,0,1,0,0,0,1
+459,"kalau bisa saus dikurangi setengah",T23,test,0,0,1,0,0,0,0,0
+460,"keju agak dibanyakin kalau bisa kak",T32,test,0,0,0,1,0,0,0,0
+461,"aku gk bisa makan makaroni ka",T24,test,0,0,1,0,0,0,0,0
+462,"Maag, jgn peads ya",T93,test,0,0,0,0,0,0,0,0
+463,"Ga perlu alat makan min, mau dimakan di rumah",T46,test,0,0,0,0,0,1,0,0
+464,"boleh lebihin saus? nanti aku tambah bayar",T30,test,0,0,0,1,0,0,0,0
+465,"kalau bisa micin dikurangi setengah",T23,test,0,0,1,0,0,0,0,0
+466,"minta dipisah plastiknya, mau dibagi ke bekal anak",T39,test,0,0,0,0,1,0,0,0
+467,"boleh dititip di pagar, nanti aku ambil",T63,test,0,0,0,0,0,0,0,1
+468,"jangan terlalu pedas kakak",T96,test,0,0,0,0,0,0,0,0
+469,"maag, jangan pedas yaa",T93,test,0,0,0,0,0,0,0,0
+470,"tolong pakai box yang bisa ditumpuk min",T38,test,0,0,0,0,1,0,0,0
+471,"anak saya alergi kacang, usahain datang sebelum kelas pagi",T78,test,0,1,0,0,0,0,1,0
+472,"kalau ga ada orang, kasih ke tetangga sebelah",T62,test,0,0,0,0,0,0,0,1
+473,"mentega ga usah, tisu 2 aja 🙏",T81,test,0,0,1,0,0,1,0,0
+474,"Aku cuma di rumah sampai jam 10",T55,test,0,0,0,0,0,0,1,0
+475,"kemasannya dobel biar ga tumpah",T40,test,0,0,0,0,1,0,0,0
+476,"double oregano ya, kalau ga ada orang kasih ke penjaga kos",T80,test,0,0,0,1,0,0,0,1
+477,"Aku cuma di rumah sampai jam 10, kalau lewat titip pos satpam, plastiknya dipisah per porsi",T82,test,0,0,0,0,1,0,1,1
