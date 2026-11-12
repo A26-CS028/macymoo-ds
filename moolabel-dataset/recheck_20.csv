@@ -1,0 +1,21 @@
+note_id,note,label,setuju_ya_tidak,label_seharusnya,catatan_pemeriksa
+20,"buat acara kampus, tolong dibungkus rapi ka",kemasan,ya,,
+25,jangan terlalu berminyak yah kaa,kurangi_bahan,ya,,berminyak = minta minyak dikurangi
+30,"udah langganan nih, enak bgt kak",(tanpa label),ya,,
+36,"sausnya dipisah ya, sendok garpunya jangan lupa",saus_terpisah; alat_makan,ya,,
+38,minta kejunya taurh di wadah sendiri min,saus_terpisah,ya,,keju dipisah termasuk saus_terpisah; 'taurh' typo sengaja
+45,makaroninya dikit aja min,kurangi_bahan,ya,,
+49,jgn pake mayo yaaa,kurangi_bahan,ya,,
+78,Sampainya jam 9 pas yah,waktu_antar,ya,,
+110,Kirim sebelum jam 7 soalnya mau berangkat,waktu_antar,ya,,
+166,langsung kasih ke satpam yaaa,titip_antar,ya,,
+188,pedes banget yaaa kak,(tanpa label),ya,,"pilihan tingkat pedas = varian, tanpa label (aturan 3)"
+203,alat makannya 4 yaa,alat_makan,ya,,
+215,"aku alergi telur, tolong alat masaknya dipasitkan bersih",alergi,ya,,A2: ada kata alergi -> alergi
+223,Sausnya dibanyakin,tambah_bahan,ya,,saus ditambah = tambah_bahan
+260,"bungkus rapi buat bekal anak, taruh di teras",kemasan; titip_antar,ya,,
+275,"Udah langganan nih, enak banget",(tanpa label),ya,,
+299,"Saus dipisah, bungkus terpisah, sendko dua",saus_terpisah; kemasan; alat_makan,ya,,'bungkus terpisah' = kemasan; 'sendko' typo sengaja
+334,saus keju agak dibanyakin kalau bisa min 😊,tambah_bahan,ya,,
+421,"punya riwayat alergi udang, saus dikasih terpisah yah",saus_terpisah; alergi,ya,,
+466,"minta dipisah plastiknya, mau dibagi ke bekal anak",kemasan,ya,,plastik dipisah = kemasan
