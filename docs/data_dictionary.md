@@ -1,6 +1,6 @@
 # Data Dictionary macyMOO
 
-**Versi:** 1.1 · **Tanggal:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
+**Versi:** 1.2 · **Tanggal:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
 **Acuan skema:** `backend/migrations/001_init.sql` repo `A26-CS028/macymoo-fs`, branch `feat/skema-db`, commit `8b21e0e` (10 Nov 2026). Review ERD dinyatakan selesai oleh Full-Stack.
 **Acuan lain:** `macymoo_Keputusan_Final.md` (KF), `erd_review_notes.md`, kesepakatan label MooLabel v0.2.
 **Database:** PostgreSQL (Neon) · 16 tabel · 91 kolom. Uang = `INTEGER` Rupiah bulat. Waktu = `TIMESTAMPTZ`; tanggal bisnis dihitung zona Asia/Jakarta.
@@ -195,8 +195,9 @@ Lewat batas bayar tidak dicatat sebagai event; dihitung dari `orders.invoice_sen
 
 | Table | Field | Data type | Description | Example/constraint | Source/relationship | Notes |
 |---|---|---|---|---|---|---|
-| settings | `key` | TEXT | Nama pengaturan | PK | Nabila / sistem | Mis. info rekening, QRIS |
+| settings | `key` | TEXT | Nama pengaturan | PK | Nabila / sistem | Mis. info rekening, QRIS, `wa_number` |
 | settings | `value` | TEXT | Nilai pengaturan | Opsional | Nabila | |
+| settings | key `wa_number` | TEXT (di `value`) | Nomor WhatsApp Nabila, tujuan tombol Kabari Nabila (`wa_link` di `POST /orders` dan `GET /orders/status/{token}`) | `6281234567890`; hanya angka, pola `^62[0-9]{8,13}$` (divalidasi API) | Nabila lewat `PUT /admin/settings` | Belum diisi → `wa_link` `null` dan tombol disembunyikan. Boleh tampil publik; bukan PII pelanggan (KF 8, 12 Nov 2026) |
 
 ## 15. chat_logs
 
@@ -300,3 +301,4 @@ Tanpa label 17,0%, multi-label 26,0%. Catatan tulisan anggota (`M##`) belum dima
 |---|---|---|
 | 1.0 | 12 Nov 2026 | Disusun ulang dari `001_init.sql` commit `8b21e0e` (16 tabel, 91 kolom); menambahkan nilai label MooLabel v0.2, rumus, pemetaan pertanyaan bisnis, dan PII |
 | 1.1 | 12 Nov 2026 | Menambahkan bagian 22: kamus kolom dan jumlah dataset MooLabel v1 |
+| 1.2 | 12 Nov 2026 | Menambahkan key `wa_number` (nomor WhatsApp Nabila) di `settings`, sesuai perubahan KF 12 Nov 2026 |
