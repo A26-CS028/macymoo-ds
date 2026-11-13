@@ -1,8 +1,8 @@
 # Kesepakatan Label MooLabel
 
-**Status:** v0.2, disetujui AI Engineer (Rio) · disepakati tim (tanpa persetujuan terpisah dari Nabila)
+**Status:** v0.3, disetujui AI Engineer (Rio) · dikonfirmasi Nabila (13 November 2026)
 **Tanggal:** 10 November 2026 · **Disusun oleh:** Daffa (DS 2), direvisi bersama AI Engineer, Tim A26-CS028
-**Acuan:** `macymoo_Keputusan_Final.md` bagian 9.4 dan 9.6, Requirements DS 2 (FR-DS2-03 sampai 05), `macymoo_Struktur_Repository.md`
+**Acuan:** `macymoo_Keputusan_Final.md` bagian 9.4 dan 9.6, Requirements DS 2 (FR-DS2-03 sampai 05)
 
 ---
 

@@ -1,7 +1,7 @@
 # Dokumentasi Dataset MooLabel
 
 **Versi dataset:** v1 · **Tanggal dibuat:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
-**Acuan:** kesepakatan label MooLabel v0.2 (`docs/moolabel_label_agreement.md`, disetujui AI Engineer), `macymoo_Keputusan_Final.md` bagian 9.4 dan 9.6, Requirements DS 2 Minggu 1 (FR-DS2-03 s.d. 06).
+**Acuan:** kesepakatan label MooLabel v0.3 (`docs/moolabel_label_agreement.md`, disetujui AI Engineer, dikonfirmasi Nabila), `macymoo_Keputusan_Final.md` bagian 9.4 dan 9.6, Requirements DS 2 Minggu 1 (FR-DS2-03 s.d. 06).
 
 > ⚠️ **Seluruh isi dataset adalah DATA SINTETIS (dummy) buatan tim.** Tidak ada catatan pelanggan asli dan tidak ada data pribadi. Dataset ini **tidak mewakili distribusi catatan pelanggan nyata**.
 
