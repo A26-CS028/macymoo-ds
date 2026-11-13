@@ -1,9 +1,9 @@
 # Data Dictionary macyMOO
 
-**Versi:** 1.2 · **Tanggal:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
-**Acuan skema:** `backend/migrations/001_init.sql` repo `A26-CS028/macymoo-fs`, branch `feat/skema-db`, commit `8b21e0e` (10 Nov 2026). Review ERD dinyatakan selesai oleh Full-Stack.
+**Versi:** 1.3 · **Tanggal:** 13 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
+**Acuan skema:** `backend/migrations/001_init.sql` repo `A26-CS028/macymoo-fs`, branch `main`, commit `250911f` (13 Nov 2026). Review ERD dinyatakan selesai oleh Full-Stack.
 **Acuan lain:** `macymoo_Keputusan_Final.md` (KF), `erd_review_notes.md`, kesepakatan label MooLabel v0.3.
-**Database:** PostgreSQL (Neon) · 16 tabel · 91 kolom. Uang = `INTEGER` Rupiah bulat. Waktu = `TIMESTAMPTZ`; tanggal bisnis dihitung zona Asia/Jakarta.
+**Database:** PostgreSQL (Neon) · 16 tabel · 92 kolom. Uang = `INTEGER` Rupiah bulat. Waktu = `TIMESTAMPTZ`; tanggal bisnis dihitung zona Asia/Jakarta.
 
 Full-Stack adalah pemilik skema dan migrasi. Nama kolom di dokumen ini mengikuti SQL apa adanya; perubahan kolom harus dikabarkan ke DS agar dokumen ini diperbarui.
 
@@ -28,6 +28,7 @@ Daftar menu yang dijual.
 |---|---|---|---|---|---|---|
 | menus | `id` | INTEGER | Identitas menu | PK, identity | Sistem | |
 | menus | `name` | TEXT | Nama menu | NOT NULL. Mis. `Mackster`, `Nutrimac`, `Wraphoria`, `Mac Bites` | Nabila (Kelola menu) | Tidak UNIQUE; nama tidak disalin ke `order_items` (T16) |
+| menus | `description` | TEXT | Deskripsi menu | Opsional; maks. 300 karakter (validasi API) | Nabila (Kelola menu) | |
 | menus | `price` | INTEGER | Harga dasar saat ini (Rp) | NOT NULL, CHECK ≥ 0. Mis. `35000` | Nabila | Harga saat pesan disalin ke `order_items.unit_price` |
 | menus | `photo_url` | TEXT | URL foto menu | Opsional | Vercel Blob | |
 | menus | `is_available` | BOOLEAN | Status tersedia/habis | NOT NULL, DEFAULT `true` | Nabila | |
@@ -55,9 +56,9 @@ Satu baris per pesanan.
 | orders | `customer_name` | TEXT | Nama pelanggan | Opsional | Form / MacLab | **PII**. NULL setelah Anonimkan |
 | orders | `phone` | TEXT | Nomor HP pelanggan | Opsional, ber-index | Form / MacLab | **PII**. NULL setelah Anonimkan |
 | orders | `source` | TEXT | Asal pesanan | NOT NULL, CHECK `web_form`, `admin_form` | Backend | `admin_form` = MacLab |
-| orders | `status` | TEXT | Status pesanan | NOT NULL, DEFAULT `Menunggu Konfirmasi`, CHECK `Menunggu Konfirmasi`, `Menunggu Pembayaran`, `Diproses`, `Selesai`, `Dibatalkan` | Backend / Nabila | `Dibatalkan` tidak dihitung omzet |
+| orders | `status` | TEXT | Status pesanan | NOT NULL, DEFAULT `menunggu_konfirmasi`, CHECK `menunggu_konfirmasi`, `menunggu_pembayaran`, `diproses`, `selesai`, `dibatalkan` | Backend / Nabila | `dibatalkan` tidak dihitung omzet |
 | orders | `pay_timing` | TEXT | Pilihan waktu bayar | NOT NULL, DEFAULT `di_muka`, CHECK `di_muka`, `setelah_kirim` | Form / Nabila | KF 4 |
-| orders | `pay_status` | TEXT | Status bayar (ringkasan) | NOT NULL, DEFAULT `Belum Bayar`, CHECK `Belum Bayar`, `DP`, `Lunas`, `Dikembalikan` | Backend | Sumber kebenaran tetap `payments` |
+| orders | `pay_status` | TEXT | Status bayar (ringkasan) | NOT NULL, DEFAULT `belum_bayar`, CHECK `belum_bayar`, `dp`, `lunas`, `dikembalikan` | Backend | Sumber kebenaran tetap `payments` |
 | orders | `discount` | INTEGER | Potongan harga pesanan (Rp) | NOT NULL, DEFAULT 0, CHECK ≥ 0 | Nabila | |
 | orders | `public_token` | TEXT | Token link status/tagihan publik | NOT NULL, UNIQUE | Backend (acak panjang) | Jangan ditampilkan di analisis |
 | orders | `invoice_sent_at` | TIMESTAMPTZ | Waktu tombol Kirim Tagihan ditekan | Opsional | Backend | Awal hitungan batas bayar 4 jam |
@@ -75,7 +76,7 @@ Pengiriman per pesanan; satu pesanan bisa punya beberapa pengiriman.
 | deliveries | `method` | TEXT | Cara antar | NOT NULL, CHECK `antar_nabila`, `ambil_sendiri` | Form | |
 | deliveries | `address` | TEXT | Alamat antar | Opsional (kosong untuk ambil sendiri) | Form | **PII**. NULL setelah Anonimkan |
 | deliveries | `shipping_fee` | INTEGER | Ongkir pengiriman ini (Rp) | NOT NULL, DEFAULT 0, CHECK ≥ 0 | Nabila | Satu-satunya tempat ongkir. `ambil_sendiri` = 0 |
-| deliveries | `delivery_status` | TEXT | Status kirim | NOT NULL, DEFAULT `Dijadwalkan`, CHECK `Dijadwalkan`, `Terkirim` | Nabila | |
+| deliveries | `delivery_status` | TEXT | Status kirim | NOT NULL, DEFAULT `dijadwalkan`, CHECK `dijadwalkan`, `terkirim` | Nabila | |
 | deliveries | `delivered_at` | TIMESTAMPTZ | Waktu terkirim | Opsional | Backend | |
 
 ## 5. order_items
@@ -171,13 +172,13 @@ Riwayat kejadian pesanan.
 |---|---|---|---|---|---|---|
 | order_events | `id` | INTEGER | Identitas event | PK, identity | Sistem | |
 | order_events | `order_id` | INTEGER | Pesanan terkait | FK → `orders.id`, NOT NULL | 1 pesanan : N event | |
-| order_events | `delivery_id` | INTEGER | Pengiriman terkait | FK → `deliveries.id`, opsional | | Diisi untuk `reschedule` satu pengiriman |
+| order_events | `delivery_id` | INTEGER | Pengiriman terkait | FK → `deliveries.id`, opsional | | Diisi untuk `rescheduled` satu pengiriman |
 | order_events | `admin_id` | INTEGER | Admin pelaku | FK → `admin_users.id`, opsional | | |
-| order_events | `event_type` | TEXT | Jenis event | NOT NULL, CHECK `status_change`, `reschedule`, `cancel`, `bill_sent` | Backend | `cancel` juga mengisi `from_status`/`to_status` |
+| order_events | `event_type` | TEXT | Jenis event | NOT NULL, CHECK `order_created`, `confirmed`, `bill_sent`, `rescheduled`, `delivery_delivered`, `payment_recorded`, `cancelled`, `completed` | Backend | Penolakan pesanan = `cancelled` (dibedakan dari `from_status`). Satu pembatalan = satu event `cancelled`. Lewat batas bayar tidak punya event |
 | order_events | `from_status` | TEXT | Status sebelum | CHECK lima status pesanan | Backend | |
 | order_events | `to_status` | TEXT | Status sesudah | CHECK lima status pesanan | Backend | |
-| order_events | `old_date` | DATE | Tanggal kirim lama | Opsional | Backend | Untuk `reschedule` |
-| order_events | `new_date` | DATE | Tanggal kirim baru | Opsional | Backend | Untuk `reschedule` |
+| order_events | `old_date` | DATE | Tanggal kirim lama | Opsional | Backend | Untuk `rescheduled` |
+| order_events | `new_date` | DATE | Tanggal kirim baru | Opsional | Backend | Untuk `rescheduled` |
 | order_events | `reason` | TEXT | Alasan | Opsional | Nabila | Alasan jadwal ulang / batal |
 | order_events | `created_at` | TIMESTAMPTZ | Waktu event | NOT NULL, DEFAULT now() | Sistem | |
 
@@ -244,9 +245,9 @@ Sesuai kesepakatan label v0.3 dengan AI Engineer (dikonfirmasi Nabila). Urutan s
 | Pembayaran bersih | `SUM(amount dp + pelunasan) − SUM(amount refund)` |
 | Sisa tagihan | `total pesanan − pembayaran bersih` |
 | Lewat batas bayar | `pay_timing = 'di_muka'`, `invoice_sent_at + 4 jam < now()`, dan pembayaran bersih = 0 (KF 6) |
-| Omzet | Hanya pesanan dengan `status <> 'Dibatalkan'` |
+| Omzet | Hanya pesanan dengan `status <> 'dibatalkan'` |
 
-**Hindari hitung ganda:** agregasi `order_item_options`, `order_item_labels`, `payments`, dan `deliveries` per tabel dulu (CTE/subquery) sebelum di-join ke `orders`. Hitung pembatalan dari `orders.status = 'Dibatalkan'`, bukan dari jumlah event.
+**Hindari hitung ganda:** agregasi `order_item_options`, `order_item_labels`, `payments`, dan `deliveries` per tabel dulu (CTE/subquery) sebelum di-join ke `orders`. Hitung pembatalan dari `orders.status = 'dibatalkan'`, bukan dari jumlah event.
 
 ## 19. Kebutuhan data lima pertanyaan bisnis (koordinasi DS 1)
 
@@ -302,3 +303,4 @@ Tanpa label 17,0%, multi-label 26,0%. Catatan tulisan anggota (`M##`) belum dima
 | 1.0 | 12 Nov 2026 | Disusun ulang dari `001_init.sql` commit `8b21e0e` (16 tabel, 91 kolom); menambahkan nilai label MooLabel v0.2, rumus, pemetaan pertanyaan bisnis, dan PII |
 | 1.1 | 12 Nov 2026 | Menambahkan bagian 22: kamus kolom dan jumlah dataset MooLabel v1 |
 | 1.2 | 12 Nov 2026 | Menambahkan key `wa_number` (nomor WhatsApp Nabila) di `settings`, sesuai perubahan KF 12 Nov 2026 |
+| 1.3 | 13 Nov 2026 | Mengikuti `001_init.sql` commit `250911f`: nilai `orders.status`, `pay_status`, `deliveries.delivery_status`, dan `order_events` ditulis `snake_case` sama dengan OpenAPI; `event_type` menjadi 8 nilai; tambah kolom `menus.description` (92 kolom) |
