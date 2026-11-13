@@ -1,7 +1,7 @@
 # Data Limitation & Clarification Log — DS 1 Minggu 1
 
 Cakupan: hanya 11 invoice asli (Agustus–Oktober 2026). Keterbatasan di bawah adalah kondisi bawaan data lama yang dibuat manual sebelum sistem ada, bukan kesalahan pemeriksaan.
-KF = *Keputusan Final* (`docs/macymoo_Keputusan_Final.md`, versi 6 November 2026); angka di belakangnya adalah nomor bagian. ID dipakai agar mudah dirujuk di diskusi tim.
+KF = *Keputusan Final* (`docs/macymoo_Keputusan_Final.md`, versi 12 November 2026); angka di belakangnya adalah nomor bagian. ID dipakai agar mudah dirujuk di diskusi tim.
 
 ## A. Data yang tidak tersedia
 
@@ -35,7 +35,7 @@ KF = *Keputusan Final* (`docs/macymoo_Keputusan_Final.md`, versi 6 November 2026
 
 | ID | Definisi | Status |
 |---|---|---|
-| D01 | Omzet = nilai item pesanan yang tidak Dibatalkan (KF 9.5), diakui saat ditagih, bukan saat dibayar. Ongkir **tidak** termasuk omzet. Diskon tidak dikurangkan di omzet per menu karena hanya tercatat per pesanan | **Disetujui DS 2 (12 Nov 2026).** Sesuai rumus Omzet di data dictionary v1.1 bagian 18 (`orders.status <> 'Dibatalkan'`) |
+| D01 | Omzet = nilai item pesanan yang tidak Dibatalkan (KF 9.5), diakui saat ditagih, bukan saat dibayar. Ongkir **tidak** termasuk omzet. Diskon tidak dikurangkan di omzet per menu karena hanya tercatat per pesanan | **Disetujui DS 2 (12 Nov 2026).** Sesuai rumus Omzet di data dictionary v1.2 bagian 18 (`orders.status <> 'Dibatalkan'`) |
 | D02 | "Minggu" = Senin–Minggu. Data aplikasi: berdasarkan `deliveries.delivery_date`. Invoice lama: tanggal invoice (A01) | **Disetujui DS 2 (12 Nov 2026)** |
 | D03 | "Porsi" = qty makanan yang dimasak Nabila: 1 pcs menu = 1 porsi, 1 paket bundling = 1 porsi per komponen makanan. Minuman kolaborasi (botol) tidak dihitung porsi | **Disetujui DS 2 (12 Nov 2026)** dengan catatan: di data aplikasi bundling disimpan satu baris tanpa komponen (L06), jadi dihitung 1 porsi per paket; `item_type = kolaborasi` minuman tidak dihitung |
 | D04 | Lewat batas bayar = 4 jam setelah Kirim Tagihan, hanya untuk pesanan bayar di muka (KF 6) | Final; tidak bisa diterapkan ke invoice lama |
