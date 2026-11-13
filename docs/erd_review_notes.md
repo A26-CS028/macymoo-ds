@@ -119,20 +119,20 @@ Data dictionary DS mengikuti nama di SQL, karena Full-Stack pemilik skema.
 
 ## 6. Nilai yang perlu dibakukan
 
-| Kolom | Nilai menurut KF |
+| Kolom | Nilai final (skema `main`, commit `250911f`, 13 Nov 2026) |
 |---|---|
-| `orders.status` | Menunggu Konfirmasi, Menunggu Pembayaran, Diproses, Selesai, Dibatalkan (penulisan persis belum ditetapkan) |
-| `orders.source` | web_form dan admin_form (MacLab) |
-| `orders.pay_timing` | bayar di muka, bayar setelah kirim |
-| `orders.pay_status` | Belum Bayar, DP, Lunas, Dikembalikan |
-| `deliveries.method` | Antar Nabila, Ambil Sendiri |
-| `deliveries.delivery_status` | Dijadwalkan, Terkirim |
-| `payments.type` | DP, pelunasan, refund |
-| `payments.method` | QRIS, transfer, tunai |
+| `orders.status` | `menunggu_konfirmasi`, `menunggu_pembayaran`, `diproses`, `selesai`, `dibatalkan` |
+| `orders.source` | `web_form`, `admin_form` (MacLab) |
+| `orders.pay_timing` | `di_muka`, `setelah_kirim` |
+| `orders.pay_status` | `belum_bayar`, `dp`, `lunas`, `dikembalikan` |
+| `deliveries.method` | `antar_nabila`, `ambil_sendiri` |
+| `deliveries.delivery_status` | `dijadwalkan`, `terkirim` |
+| `payments.type` | `dp`, `pelunasan`, `refund` |
+| `payments.method` | `qris`, `transfer`, `tunai` |
 | `menu_options` pedas | light, medium, spicy |
-| `order_events.event_type` | belum ada daftar |
-| `reviews.moderation_status` | belum ada daftar |
-| `order_item_labels.label` | menunggu daftar label final (DS dan AI Engineer) |
+| `order_events.event_type` | `order_created`, `confirmed`, `bill_sent`, `rescheduled`, `delivery_delivered`, `payment_recorded`, `cancelled`, `completed` |
+| `reviews.moderation_status` | `pending`, `approved`, `rejected` |
+| `order_item_labels.label` | 8 label kesepakatan v0.3: `saus_terpisah`, `alergi`, `kurangi_bahan`, `tambah_bahan`, `kemasan`, `alat_makan`, `waktu_antar`, `titip_antar` |
 
 ---
 
@@ -226,12 +226,12 @@ Full-Stack mengirim `001_init.sql` revisi (15 tabel, 88 kolom). Header file meny
 
 Full-Stack mengirim revisi ketiga `001_init.sql` (branch `feat/skema-db`, commit `8b21e0e`, 16 tabel, 91 kolom). Hasil pengecekan DS (rincian dan screenshot bukti di `Review_Skema_DB_macyMOO.docx`):
 
-- Daftar `order_events.event_type` sudah ada: `status_change`, `reschedule`, `cancel`, `bill_sent`; `from_status` dan `to_status` ber-CHECK.
+- Daftar `order_events.event_type` sudah ada; `from_status` dan `to_status` ber-CHECK. Sejak 13 Nov 2026 (commit `250911f`) daftarnya 8 nilai mengikuti OpenAPI: `order_created`, `confirmed`, `bill_sent`, `rescheduled`, `delivery_delivered`, `payment_recorded`, `cancelled`, `completed`.
 - `CHECK (item_type <> 'menu' OR menu_id IS NOT NULL)` sudah ditambahkan.
 - `order_item_options.extra_price` tanpa default; `orders.pay_timing` default `di_muka`; tabel baru `rate_limits` (bukan data bisnis).
 - Status akhir: **16 dari 18 temuan selesai**; T13 dan T16 diterima sebagai keterbatasan.
 - Tiga catatan kecil (pembatalan tidak boleh tercatat dua event, `order_item_labels.label` divalidasi backend, merge ke `main`) sudah disampaikan dan **dijawab Full-Stack**.
-- Untuk analisis, pembatalan dihitung dari `orders.status = 'Dibatalkan'`.
+- Untuk analisis, pembatalan dihitung dari `orders.status = 'dibatalkan'`.
 
 **Review ERD dinyatakan selesai.** Data dictionary v1.0 mengikuti commit `8b21e0e`.
 
