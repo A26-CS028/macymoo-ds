@@ -2,8 +2,8 @@
 
 Sumber:
 - 11 invoice asli (`invoice/`, Agustus–Oktober 2026). Detailnya ada di `invoice_review_notes.md`.
-- *macymoo: Keputusan Final Fitur* (rapat 4 November 2026, versi 6 November 2026), disingkat **KF** (`docs/macymoo_Keputusan_Final.md`). Angka di belakang KF adalah nomor bagian.
-- Nama tabel dan kolom aplikasi mengikuti data dictionary v1.1 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack.
+- *macymoo: Keputusan Final Fitur* (rapat 4 November 2026, versi 12 November 2026), disingkat **KF** (`docs/macymoo_Keputusan_Final.md`). Angka di belakang KF adalah nomor bagian.
+- Nama tabel dan kolom aplikasi mengikuti data dictionary v1.2 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack.
 
 Rencana data menurut KF 9.5: analisis memakai **11 invoice asli (dianonimkan) dan data dummy**. Pertanyaan yang tidak bisa dijawab dari invoice nantinya dijawab dari data aplikasi atau data dummy yang diberi label jelas sebagai dummy, bukan dari asumsi.
 

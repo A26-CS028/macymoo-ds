@@ -2,7 +2,7 @@
 
 **Versi:** 1.2 · **Tanggal:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
 **Acuan skema:** `backend/migrations/001_init.sql` repo `A26-CS028/macymoo-fs`, branch `feat/skema-db`, commit `8b21e0e` (10 Nov 2026). Review ERD dinyatakan selesai oleh Full-Stack.
-**Acuan lain:** `macymoo_Keputusan_Final.md` (KF), `erd_review_notes.md`, kesepakatan label MooLabel v0.2.
+**Acuan lain:** `macymoo_Keputusan_Final.md` (KF), `erd_review_notes.md`, kesepakatan label MooLabel v0.3.
 **Database:** PostgreSQL (Neon) · 16 tabel · 91 kolom. Uang = `INTEGER` Rupiah bulat. Waktu = `TIMESTAMPTZ`; tanggal bisnis dihitung zona Asia/Jakarta.
 
 Full-Stack adalah pemilik skema dan migrasi. Nama kolom di dokumen ini mengikuti SQL apa adanya; perubahan kolom harus dikabarkan ke DS agar dokumen ini diperbarui.
@@ -222,7 +222,7 @@ Bukan data bisnis; tidak dipakai untuk analisis.
 
 ## 17. Nilai label MooLabel (`order_item_labels.label`)
 
-Sesuai kesepakatan label v0.2 dengan AI Engineer. Urutan sama dengan kolom biner di dataset.
+Sesuai kesepakatan label v0.3 dengan AI Engineer (dikonfirmasi Nabila). Urutan sama dengan kolom biner di dataset.
 
 | No | Label | Definisi |
 |---|---|---|
@@ -277,7 +277,7 @@ File dataset, bukan tabel database. **Seluruh isi sintetis.** Rincian lengkap di
 | moolabel_v1 | `note` | string | Teks catatan mentah | Tidak kosong, bukan "-". Mis. `"sausnya dipisah ya kak"` | Template atau tulisan anggota | Padanan `order_items.note` |
 | moolabel_v1 | `template_id` | string | Sumber pola catatan | `T01`–`T96` = template; `M01`, `M02`, … = tulisan anggota | `templates_v1.csv` | Satu `template_id` hanya di satu split |
 | moolabel_v1 | `split` | string | Pembagian data | `train` atau `test` | Ditentukan per template | `M##` selalu `test` |
-| moolabel_v1 | `saus_terpisah` … `titip_antar` | integer | 8 kolom label biner | 0 atau 1; urutan seperti bagian 17 | Aturan anotasi kesepakatan v0.2 | Padanan baris di `order_item_labels` |
+| moolabel_v1 | `saus_terpisah` … `titip_antar` | integer | 8 kolom label biner | 0 atau 1; urutan seperti bagian 17 | Aturan anotasi kesepakatan v0.3 | Padanan baris di `order_item_labels` |
 
 **Jumlah per label dan split (v1, 12 Nov 2026):**
 
