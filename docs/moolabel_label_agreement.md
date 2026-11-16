@@ -149,9 +149,10 @@ Seluruh data dibuat tim, sehingga skor evaluasi apa pun akan lebih optimis darip
 | Batas label, aturan anotasi, kasus ambigu | Disetujui |
 | Format CSV dan path | Disetujui |
 | Target komposisi dan validasi | Disetujui |
-| Persetujuan Nabila | Tidak diminta terpisah; dicatat sebagai **disepakati tim** |
+| Persetujuan Nabila | **Dikonfirmasi Nabila 13 November 2026** |
 
 | Versi | Tanggal | Perubahan |
 |---|---|---|
 | 0.1 | 10 Nov 2026 | Draf awal dari contoh Keputusan Final |
 | 0.2 | 10 Nov 2026 | Prinsip label dari teks saja; definisi `alergi` dipersempit (A9 diubah); tambah tabel batas label dan kasus A11–A15; aturan 5 dipersempit ke bahan yang sama; `template_id` `M##` untuk tulisan anggota; satu file per versi dengan kolom `split`; tanpa kolom penanda sumber; target komposisi sekitar 470 catatan; aturan `validate.py`; bagian keterbatasan |
+| 0.3 | 13 Nov 2026 | Status persetujuan diperbarui: dikonfirmasi Nabila 13 November 2026. Daftar 8 label, definisi, dan aturan anotasi sama dengan v0.2 |
