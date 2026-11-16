@@ -31,7 +31,12 @@ Kamus data: `moolabel-dataset/data_dictionary.md`.
 
 ## Menjalankan
 
-(diisi setelah setup selesai)
+```bash
+pip install -r requirements.txt
+python3 data/dummy/generate_orders.py   # buat ulang data/dummy/*_dummy.csv (DATA DUMMY, seed 42)
+jupyter notebook notebooks/02_pertanyaan_bisnis.ipynb   # omzet harian dan mingguan
+streamlit run streamlit/app.py          # prototipe Rekap, lokal saja
+```
 
 ## Temuan utama
 
