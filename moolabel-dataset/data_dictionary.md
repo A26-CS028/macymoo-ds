@@ -1,6 +1,6 @@
 # Dokumentasi Dataset MooLabel
 
-**Versi dataset:** v1 · **Tanggal dibuat:** 12 November 2026 · **Disusun oleh:** DS 2, Tim A26-CS028
+**Versi dataset:** v2 · **Tanggal dibuat:** 16 November 2026 (v1: 12 November 2026) · **Disusun oleh:** DS 2, Tim A26-CS028
 **Acuan:** kesepakatan label MooLabel v0.3 (`docs/moolabel_label_agreement.md`, disetujui AI Engineer, dikonfirmasi Nabila), `macymoo_Keputusan_Final.md` bagian 9.4 dan 9.6, Requirements DS 2 Minggu 1 (FR-DS2-03 s.d. 06).
 
 > ⚠️ **Seluruh isi dataset adalah DATA SINTETIS (dummy) buatan tim.** Tidak ada catatan pelanggan asli dan tidak ada data pribadi. Dataset ini **tidak mewakili distribusi catatan pelanggan nyata**.
@@ -13,15 +13,17 @@ Melatih dan menguji **MooLabel**, model klasifikasi multi-label yang membaca cat
 
 | File | Isi |
 |---|---|
-| `output/moolabel_v1.csv` | **File utama** (sesuai kesepakatan): 477 catatan, kolom `split` |
-| `output/moolabel_train.csv` | Ekspor baris `split = train` (316), nama sesuai requirement DS 2 |
-| `output/moolabel_test.csv` | Ekspor baris `split = test` (161), nama sesuai requirement DS 2 |
-| `templates.csv` | Daftar 96 template: id, split, label, pola kalimat (untuk audit) |
-| `member_notes.csv` | Tempat catatan tulisan anggota (`M##`); saat ini **kosong** |
+| `output/moolabel_v2.csv` | **File utama** (sesuai kesepakatan): 494 catatan, kolom `split` |
+| `output/moolabel_v1.csv` | Versi sebelumnya (477 catatan); tidak diubah |
+| `output/moolabel_v2_train.csv` | Ekspor baris `split = train` (316) dari v2 |
+| `output/moolabel_v2_test.csv` | Ekspor baris `split = test` (178) dari v2 |
+| `output/moolabel_train.csv`, `output/moolabel_test.csv` | Ekspor v1; tidak diubah |
+| `templates.csv` | Daftar 102 template: id, split, label, pola kalimat (untuk audit) |
+| `member_notes.csv` | Catatan tulisan anggota (`M##`); saat ini 17 catatan dari `M01` |
 | `generate.py` | Pembuat dataset (random seed 42, deterministik) |
 | `validate.py` | Pemeriksa aturan dataset; wajib lolos sebelum diserahkan |
 
-Ketiga CSV berisi data yang sama; tim AI cukup memakai `moolabel_v1.csv`.
+File v2 (`moolabel_v2.csv`, `_train`, `_test`) berisi data yang sama; tim AI cukup memakai `moolabel_v2.csv`.
 
 ## 3. Skema kolom
 
@@ -29,7 +31,7 @@ Ketiga CSV berisi data yang sama; tim AI cukup memakai `moolabel_v1.csv`.
 |---|---|---|
 | `note_id` | integer | Nomor urut catatan, unik |
 | `note` | string | Teks catatan mentah (huruf besar, singkatan, typo, emoji dibiarkan). Diapit tanda kutip ganda. Preprocessing oleh tim AI |
-| `template_id` | string | `T01`–`T96` = template; `M01`, `M02`, … = catatan tulisan anggota (satu ID per penulis) |
+| `template_id` | string | `T01`–`T102` = template; `M01`, `M02`, … = catatan tulisan anggota (satu ID per penulis) |
 | `split` | string | `train` atau `test` |
 | 8 kolom label | integer 0/1 | Urutan tetap: `saus_terpisah`, `alergi`, `kurangi_bahan`, `tambah_bahan`, `kemasan`, `alat_makan`, `waktu_antar`, `titip_antar` |
 
@@ -65,14 +67,15 @@ Kasus ambigu A1–A15 di kesepakatan diterapkan langsung di template, mis. A3 "j
 ## 6. Cara pembuatan
 
 1. **Seed:** 16 contoh catatan di Keputusan Final 9.6, ditambah kasus A1–A15 di kesepakatan label.
-2. **Template:** 96 pola kalimat di `generate.py`:
-   - 64 template satu label (8 per label: 5 train, 3 test);
+2. **Template:** 102 pola kalimat di `generate.py`:
+   - 70 template satu label (8 per label: 5 train, 3 test; v2 menambah 1 train dan 1 test untuk `saus_terpisah` (T97, T98), `kemasan` (T99, T100), dan `alat_makan` (T101, T102));
    - 20 template multi-label berisi 2–3 permintaan (12 train, 8 test);
    - 12 template tanpa label (7 train, 5 test).
+   Template v2 ditaruh di akhir daftar, jadi `T01`–`T96` tidak bergeser dari v1.
 3. **Slot:** tiap pola punya slot yang diisi acak, mis. `{saus}`, `{alergen}`, `{kurang}`, `{tambah}`, `{jam}`, `{penerima}`, sapaan `{kak}`, `{ya}`.
 4. **Variasi gaya informal:** singkatan (yg, jgn, gk, tlg, kalo, bgt, pake) ±30%; huruf berulang (yaaa, kakk) ±15%; typo tukar huruf ±7%; huruf awal kapital ±25%; emoji ±10%.
 5. **Deduplikasi:** catatan yang sama setelah huruf kecil dan spasi dirapikan dibuang.
-6. **Catatan tulisan anggota** dari `member_notes.csv` (jika ada) digabung ke split `test`.
+6. **Catatan tulisan anggota** dari `member_notes.csv` (17 catatan dari penulis `M01`) digabung ke split `test`.
 
 Membuat ulang: dari root repository, jalankan `python3 moolabel-dataset/generate.py` lalu `python3 moolabel-dataset/validate.py`. Seed tetap, jadi hasilnya identik.
 
@@ -80,22 +83,24 @@ Membuat ulang: dari root repository, jalankan `python3 moolabel-dataset/generate
 
 | Label | Train | Test | Total | Template (train/test) |
 |---|---|---|---|---|
-| `saus_terpisah` | 50 | 22 | 72 | 9 / 5 |
-| `alergi` | 43 | 22 | 65 | 8 / 5 |
-| `kurangi_bahan` | 50 | 22 | 72 | 9 / 5 |
-| `tambah_bahan` | 43 | 22 | 65 | 8 / 5 |
-| `kemasan` | 43 | 22 | 65 | 8 / 5 |
-| `alat_makan` | 43 | 27 | 70 | 8 / 6 |
-| `waktu_antar` | 43 | 22 | 65 | 8 / 5 |
-| `titip_antar` | 43 | 22 | 65 | 8 / 5 |
-| **Catatan** | **316** | **161** | **477** | |
+| `saus_terpisah` | 50 | 24 | 74 | 10 / 6 |
+| `alergi` | 43 | 24 | 67 | 8 / 5 |
+| `kurangi_bahan` | 50 | 25 | 75 | 9 / 5 |
+| `tambah_bahan` | 43 | 24 | 67 | 8 / 5 |
+| `kemasan` | 43 | 24 | 67 | 9 / 6 |
+| `alat_makan` | 43 | 29 | 72 | 9 / 7 |
+| `waktu_antar` | 43 | 25 | 68 | 8 / 5 |
+| `titip_antar` | 43 | 25 | 68 | 8 / 5 |
+| **Catatan** | **316** | **178** | **494** | |
+
+Dari 494 catatan, 477 berasal dari template (jumlah sama dengan v1, teks dibuat ulang karena jumlah template per label berubah) dan 17 dari tulisan anggota (`M01`, semuanya test). Jumlah template per label hanya menghitung `T##`.
 
 | Komposisi | Jumlah | Persentase | Target kesepakatan |
 |---|---|---|---|
-| Tanpa label | 81 | 17,0% | 15–20% ✓ |
-| Satu label | 272 | 57,0% | — |
-| Multi-label (2–3 label) | 124 | 26,0% | 20–30% ✓ |
-| Rasio label terbanyak : tersedikit | 72 : 65 | 1,11× | ≤ 2× ✓ |
+| Tanpa label | 81 | 16,4% | 15–20% ✓ |
+| Satu label | 287 | 58,1% | — |
+| Multi-label (2–3 label) | 126 | 25,5% | 20–30% ✓ |
+| Rasio label terbanyak : tersedikit | 75 : 67 | 1,12× | ≤ 2× ✓ |
 
 ## 8. Pemisahan train/test
 
@@ -115,9 +120,9 @@ Membuat ulang: dari root repository, jalankan `python3 moolabel-dataset/generate
 | Tidak ada catatan sama di train dan test | OK (0) |
 | Positif per label: train ≥ 40, test ≥ 20 | OK |
 | Template per label: train ≥ 4, test ≥ 2 | OK |
-| Keseimbangan label ≤ 2× | OK (1,11×) |
-| Tanpa label 15–20%, multi-label 20–30% | OK (17,0% dan 26,0%) |
-| Catatan tulisan anggota ≥ 5 per label | **PERLU tindak lanjut** (belum ada) |
+| Keseimbangan label ≤ 2× | OK (1,12×) |
+| Tanpa label 15–20%, multi-label 20–30% | OK (16,4% dan 25,5%) |
+| Catatan tulisan anggota ≥ 5 per label | **PERLU tindak lanjut** (baru 2–3 per label: `saus_terpisah` 2, `alergi` 2, `kurangi_bahan` 3, `tambah_bahan` 2, `kemasan` 2, `alat_makan` 2, `waktu_antar` 3, `titip_antar` 3) |
 
 Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "-", nilai label 2); ketiganya tertangkap dan skrip keluar dengan kode 1.
 
@@ -126,7 +131,7 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 | Item | Status |
 |---|---|
 | Dataset dari template | Selesai, lolos validasi |
-| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | **Belum.** Isi `member_notes.csv` (kolom `note`, `template_id` M##, 8 kolom label), lalu jalankan ulang generate dan validate |
+| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | **Sebagian.** 17 catatan dari `M01` sudah masuk; masih perlu tambahan dari anggota lain (`M02`, …) sampai tiap label minimal 5, lalu jalankan ulang generate dan validate |
 | Cek ulang 20 baris acak oleh DS (Baskara) | **Belum** |
 | Serah terima ke AI Engineer | Menunggu dua item di atas |
 
@@ -137,12 +142,13 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 - **Kosakata terbatas.** Nama bahan, alergen, jam, dan penerima berasal dari daftar slot yang ditulis tim. Template test berbeda dari train, tetapi slotnya sama, sehingga model tetap bisa mengandalkan kata kunci tersebut.
 - **Gaya tulis seragam.** Semua template ditulis tim DS; catatan tulisan anggota lain diperlukan untuk menambah keragaman gaya.
 - **Catatan ambigu dibuang** (aturan 5), padahal pelanggan asli bisa menulis seperti itu; penanganannya diserahkan ke backend/Nabila.
-- **Belum dikonfirmasi Nabila secara terpisah**; label dicatat sebagai disepakati tim (kesepakatan bagian 10).
+- **Label dikonfirmasi Nabila pada 13 November 2026** (kesepakatan v0.3); daftar dan definisi label tidak berubah dari v0.2.
 
 ## 12. Riwayat versi
 
 | Versi | Tanggal | Perubahan |
 |---|---|---|
 | v1 | 12 Nov 2026 | Dataset awal dari 96 template, mengikuti kesepakatan label v0.2. 477 catatan (316 train, 161 test). Catatan tulisan anggota belum dimasukkan |
+| v2 | 16 Nov 2026 | Mengikuti kesepakatan label v0.3 (8 label sama dengan v0.2). Tambah 6 template untuk `saus_terpisah`, `kemasan`, `alat_makan` (T97–T102) dan 17 catatan tulisan anggota (`M01`). 494 catatan (316 train, 178 test). Data uji belum dibekukan: catatan anggota lain masih ditunggu |
 
-Perubahan label atau format membuat versi file baru (`moolabel_v2.csv`); file lama tidak ditimpa.
+Perubahan label atau format membuat versi file baru (`moolabel_v3.csv` dan seterusnya); file lama tidak ditimpa.

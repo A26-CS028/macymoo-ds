@@ -95,3 +95,9 @@ T93,test,(tidak berlabel),"maag, jangan pedas {ya}"
 T94,test,(tidak berlabel),ganti ke ayam dada {ya} {kak}
 T95,test,(tidak berlabel),semoga laris {kak}
 T96,test,(tidak berlabel),jangan terlalu pedas {kak}
+T97,train,saus_terpisah,pisahkan {saus} dari makanannya {ya}
+T98,test,saus_terpisah,"{saus} jangan digabung sama makaroninya, aku mau siram sendiri {kak}"
+T99,train,kemasan,kemasannya dikasih alas kertas biar ga bocor {ya}
+T100,test,kemasan,"dikemas kedap udara ya {kak}, mau disimpan dulu"
+T101,train,alat_makan,sendoknya buat {n} orang {ya}
+T102,test,alat_makan,"aku bawa alat makan sendiri, ga usah dikasih {kak}"

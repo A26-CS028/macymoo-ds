@@ -22,7 +22,7 @@ Alur di `moolabel-dataset/`:
 1. `templates.csv` berisi `template_id, kalimat, label`.
 2. `generate.py` membuat parafrase dari template dengan random seed tetap.
 3. `validate.py` memeriksa kebocoran train/test dan contoh positif per label.
-4. Hasil ada di `output/moolabel_v1.csv`.
+4. Hasil ada di `output/moolabel_v2.csv` (v1 tetap disimpan).
 
 Versi baru dibuat sebagai file baru (`v2`, `v3`), jangan menimpa versi lama.
 Dataset lalu disalin ke [macymoo-ai](https://github.com/A26-CS028/macymoo-ai), dan README AI mencatat versi serta commit asalnya.
