@@ -1,6 +1,6 @@
 """Validasi dataset MooLabel sebelum diserahkan ke tim AI.
 
-Aturan dari kesepakatan label v0.2 bagian 7 dan 8. Keluar dengan kode 1 jika ada GAGAL.
+Aturan dari kesepakatan label v0.3 bagian 7 dan 8. Keluar dengan kode 1 jika ada GAGAL.
 Jalankan:  python3 moolabel-dataset/validate.py [path_csv]
 """
 import csv
@@ -15,7 +15,7 @@ MIN_POS = {"train": 40, "test": 20}
 MIN_TEMPLATES = {"train": 4, "test": 2}
 MIN_MEMBER_PER_LABEL = 5
 
-path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "output/moolabel_v1.csv"
+path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent / "output/moolabel_v2.csv"
 fails, warns = [], []
 
 

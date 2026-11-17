@@ -1,7 +1,7 @@
-"""Pembuat dataset MooLabel v1 (DS 2, Minggu 1).
+"""Pembuat dataset MooLabel v2 (DS 2, Minggu 2).
 
 SELURUH CATATAN ADALAH DATA SINTETIS buatan tim, bukan catatan pelanggan asli.
-Acuan aturan: docs/moolabel_label_agreement.md v0.2 (disetujui AI Engineer).
+Acuan aturan: docs/moolabel_label_agreement.md v0.3 (disetujui AI Engineer, dikonfirmasi Nabila).
 
 - Train/test dipisah per template: satu template_id hanya ada di satu split.
 - Catatan tulisan anggota (template_id M01, M02, ...) dibaca dari
@@ -14,7 +14,7 @@ import random
 from pathlib import Path
 
 SEED = 42
-VERSION = "v1"
+VERSION = "v2"
 ROOT = Path(__file__).resolve().parent
 OUT_DIR = ROOT / "output"
 
@@ -160,6 +160,17 @@ NONE = [
     ("test", "jangan terlalu pedas {kak}"),
 ]
 
+# Template tambahan v2 untuk label lemah (kemasan, saus_terpisah, alat_makan).
+# Ditaruh di akhir supaya template_id T01-T96 dari v1 tidak bergeser.
+EXTRA_SINGLE = [
+    ("saus_terpisah", "train", "pisahkan {saus} dari makanannya {ya}"),
+    ("saus_terpisah", "test", "{saus} jangan digabung sama makaroninya, aku mau siram sendiri {kak}"),
+    ("kemasan", "train", "kemasannya dikasih alas kertas biar ga bocor {ya}"),
+    ("kemasan", "test", "dikemas kedap udara ya {kak}, mau disimpan dulu"),
+    ("alat_makan", "train", "sendoknya buat {n} orang {ya}"),
+    ("alat_makan", "test", "aku bawa alat makan sendiri, ga usah dikasih {kak}"),
+]
+
 # Jumlah baris per kelompok (total sekitar 470, sesuai kesepakatan bagian 7).
 ROWS = {
     ("single", "train"): 22,  # per label
@@ -223,6 +234,9 @@ def build_templates():
     for split, pat in NONE:
         n += 1
         out.append({"template_id": f"T{n:02d}", "split": split, "labels": (), "pattern": pat, "kind": "none"})
+    for lab, split, pat in EXTRA_SINGLE:
+        n += 1
+        out.append({"template_id": f"T{n:02d}", "split": split, "labels": (lab,), "pattern": pat, "kind": "single"})
     return out
 
 
@@ -292,8 +306,8 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     templates, rows = generate()
     write_csv(OUT_DIR / f"moolabel_{VERSION}.csv", rows)
-    write_csv(OUT_DIR / "moolabel_train.csv", [r for r in rows if r["split"] == "train"])
-    write_csv(OUT_DIR / "moolabel_test.csv", [r for r in rows if r["split"] == "test"])
+    write_csv(OUT_DIR / f"moolabel_{VERSION}_train.csv", [r for r in rows if r["split"] == "train"])
+    write_csv(OUT_DIR / f"moolabel_{VERSION}_test.csv", [r for r in rows if r["split"] == "test"])
     with open(ROOT / "templates.csv", "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["template_id", "split", "labels", "pattern"])
