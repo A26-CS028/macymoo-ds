@@ -13,13 +13,13 @@ Melatih dan menguji **MooLabel**, model klasifikasi multi-label yang membaca cat
 
 | File | Isi |
 |---|---|
-| `output/moolabel_v2.csv` | **File utama** (sesuai kesepakatan): 494 catatan, kolom `split` |
+| `output/moolabel_v2.csv` | **File utama** (sesuai kesepakatan): 540 catatan, kolom `split` |
 | `output/moolabel_v1.csv` | Versi sebelumnya (477 catatan); tidak diubah |
 | `output/moolabel_v2_train.csv` | Ekspor baris `split = train` (316) dari v2 |
-| `output/moolabel_v2_test.csv` | Ekspor baris `split = test` (178) dari v2 |
+| `output/moolabel_v2_test.csv` | Ekspor baris `split = test` (224) dari v2 |
 | `output/moolabel_train.csv`, `output/moolabel_test.csv` | Ekspor v1; tidak diubah |
 | `templates.csv` | Daftar 102 template: id, split, label, pola kalimat (untuk audit) |
-| `member_notes.csv` | Catatan tulisan anggota (`M##`); saat ini 17 catatan dari `M01` |
+| `member_notes.csv` | Catatan tulisan anggota (`M##`); saat ini 63 catatan dari `M01`–`M04` |
 | `generate.py` | Pembuat dataset (random seed 42, deterministik) |
 | `validate.py` | Pemeriksa aturan dataset; wajib lolos sebelum diserahkan |
 
@@ -75,7 +75,7 @@ Kasus ambigu A1–A15 di kesepakatan diterapkan langsung di template, mis. A3 "j
 3. **Slot:** tiap pola punya slot yang diisi acak, mis. `{saus}`, `{alergen}`, `{kurang}`, `{tambah}`, `{jam}`, `{penerima}`, sapaan `{kak}`, `{ya}`.
 4. **Variasi gaya informal:** singkatan (yg, jgn, gk, tlg, kalo, bgt, pake) ±30%; huruf berulang (yaaa, kakk) ±15%; typo tukar huruf ±7%; huruf awal kapital ±25%; emoji ±10%.
 5. **Deduplikasi:** catatan yang sama setelah huruf kecil dan spasi dirapikan dibuang.
-6. **Catatan tulisan anggota** dari `member_notes.csv` (17 catatan dari penulis `M01`) digabung ke split `test`.
+6. **Catatan tulisan anggota** dari `member_notes.csv` (63 catatan dari empat penulis, `M01`–`M04`) digabung ke split `test`.
 
 Membuat ulang: dari root repository, jalankan `python3 moolabel-dataset/generate.py` lalu `python3 moolabel-dataset/validate.py`. Seed tetap, jadi hasilnya identik.
 
@@ -83,24 +83,26 @@ Membuat ulang: dari root repository, jalankan `python3 moolabel-dataset/generate
 
 | Label | Train | Test | Total | Template (train/test) |
 |---|---|---|---|---|
-| `saus_terpisah` | 50 | 24 | 74 | 10 / 6 |
-| `alergi` | 43 | 24 | 67 | 8 / 5 |
-| `kurangi_bahan` | 50 | 25 | 75 | 9 / 5 |
-| `tambah_bahan` | 43 | 24 | 67 | 8 / 5 |
-| `kemasan` | 43 | 24 | 67 | 9 / 6 |
-| `alat_makan` | 43 | 29 | 72 | 9 / 7 |
-| `waktu_antar` | 43 | 25 | 68 | 8 / 5 |
-| `titip_antar` | 43 | 25 | 68 | 8 / 5 |
-| **Catatan** | **316** | **178** | **494** | |
+| `saus_terpisah` | 50 | 31 | 81 | 10 / 6 |
+| `alergi` | 43 | 30 | 73 | 8 / 5 |
+| `kurangi_bahan` | 50 | 32 | 82 | 9 / 5 |
+| `tambah_bahan` | 43 | 32 | 75 | 8 / 5 |
+| `kemasan` | 43 | 31 | 74 | 9 / 6 |
+| `alat_makan` | 43 | 36 | 79 | 9 / 7 |
+| `waktu_antar` | 43 | 27 | 70 | 8 / 5 |
+| `titip_antar` | 43 | 31 | 74 | 8 / 5 |
+| **Catatan** | **316** | **224** | **540** | |
 
-Dari 494 catatan, 477 berasal dari template (jumlah sama dengan v1, teks dibuat ulang karena jumlah template per label berubah) dan 17 dari tulisan anggota (`M01`, semuanya test). Jumlah template per label hanya menghitung `T##`.
+Dari 540 catatan, 477 berasal dari template (jumlah sama dengan v1, teks dibuat ulang karena jumlah template per label berubah) dan 63 dari tulisan anggota (`M01`–`M04`, semuanya test). Jumlah template per label hanya menghitung `T##`.
 
 | Komposisi | Jumlah | Persentase | Target kesepakatan |
 |---|---|---|---|
-| Tanpa label | 81 | 16,4% | 15–20% ✓ |
-| Satu label | 287 | 58,1% | — |
-| Multi-label (2–3 label) | 126 | 25,5% | 20–30% ✓ |
-| Rasio label terbanyak : tersedikit | 75 : 67 | 1,12× | ≤ 2× ✓ |
+| Tanpa label | 82 | 15,2% | 15–20% ✓ |
+| Satu label | 327 | 60,6% | — |
+| Multi-label (2–3 label) | 131 | 24,3% | 20–30% ✓ |
+| Rasio label terbanyak : tersedikit | 82 : 70 | 1,17× | ≤ 2× ✓ |
+
+Catatan tulisan anggota per label (semua test): `saus_terpisah` 9, `alergi` 8, `kurangi_bahan` 10, `tambah_bahan` 10, `kemasan` 9, `alat_makan` 9, `waktu_antar` 5, `titip_antar` 9.
 
 ## 8. Pemisahan train/test
 
@@ -120,9 +122,9 @@ Dari 494 catatan, 477 berasal dari template (jumlah sama dengan v1, teks dibuat 
 | Tidak ada catatan sama di train dan test | OK (0) |
 | Positif per label: train ≥ 40, test ≥ 20 | OK |
 | Template per label: train ≥ 4, test ≥ 2 | OK |
-| Keseimbangan label ≤ 2× | OK (1,12×) |
-| Tanpa label 15–20%, multi-label 20–30% | OK (16,4% dan 25,5%) |
-| Catatan tulisan anggota ≥ 5 per label | **PERLU tindak lanjut** (baru 2–3 per label: `saus_terpisah` 2, `alergi` 2, `kurangi_bahan` 3, `tambah_bahan` 2, `kemasan` 2, `alat_makan` 2, `waktu_antar` 3, `titip_antar` 3) |
+| Keseimbangan label ≤ 2× | OK (1,17×) |
+| Tanpa label 15–20%, multi-label 20–30% | OK (15,2% dan 24,3%) |
+| Catatan tulisan anggota ≥ 5 per label | OK (minimal 5 per label) |
 
 Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "-", nilai label 2); ketiganya tertangkap dan skrip keluar dengan kode 1.
 
@@ -131,9 +133,9 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 | Item | Status |
 |---|---|
 | Dataset dari template | Selesai, lolos validasi |
-| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | **Sebagian.** 17 catatan dari `M01` sudah masuk; masih perlu tambahan dari anggota lain (`M02`, …) sampai tiap label minimal 5, lalu jalankan ulang generate dan validate |
+| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | Selesai: 63 catatan dari Baskara, Darnel, dan Rama (`M02`–`M04`) ditambah `M01`; lolos validasi |
 | Cek ulang 20 baris acak oleh DS (Baskara) | **Belum** |
-| Serah terima ke AI Engineer | Menunggu dua item di atas |
+| Serah terima ke AI Engineer | Menunggu cek ulang 20 baris dan pembekuan data uji (Rabu 18 Nov 2026, 20.00 WIB) |
 
 ## 11. Keterbatasan dan risiko bias
 
@@ -149,6 +151,6 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 | Versi | Tanggal | Perubahan |
 |---|---|---|
 | v1 | 12 Nov 2026 | Dataset awal dari 96 template, mengikuti kesepakatan label v0.2. 477 catatan (316 train, 161 test). Catatan tulisan anggota belum dimasukkan |
-| v2 | 16 Nov 2026 | Mengikuti kesepakatan label v0.3 (8 label sama dengan v0.2). Tambah 6 template untuk `saus_terpisah`, `kemasan`, `alat_makan` (T97–T102) dan 17 catatan tulisan anggota (`M01`). 494 catatan (316 train, 178 test). Data uji belum dibekukan: catatan anggota lain masih ditunggu |
+| v2 | 16 Nov 2026 | Mengikuti kesepakatan label v0.3 (8 label sama dengan v0.2). Tambah 6 template untuk `saus_terpisah`, `kemasan`, `alat_makan` (T97–T102) dan 63 catatan tulisan anggota (`M01`–`M04`). 540 catatan (316 train, 224 test). Tiga catatan pertanyaan estimasi waktu tiba ("jam berapa sampai?") tidak dimasukkan karena bukan permintaan waktu Data uji dibekukan Rabu 18 Nov 2026, 20.00 WIB; perubahan sesudahnya masuk v3 |
 
 Perubahan label atau format membuat versi file baru (`moolabel_v3.csv` dan seterusnya); file lama tidak ditimpa.
