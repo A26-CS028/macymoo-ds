@@ -42,7 +42,7 @@ Opsi kustom per menu dan harga tambahannya.
 | menu_options | `id` | INTEGER | Identitas opsi | PK, identity | Sistem | |
 | menu_options | `menu_id` | INTEGER | Menu pemilik opsi | FK → `menus.id`, NOT NULL | 1 menu : N opsi | |
 | menu_options | `option_group` | TEXT | Kelompok opsi | Mis. `pedas`, `keju`, `ayam`, `tanpa_makaroni`, `tanpa_brokoli` | Nabila | Tanpa CHECK; divalidasi backend (Joi). Dipakai pertanyaan bisnis 5 |
-| menu_options | `name` | TEXT | Nama opsi | NOT NULL. Mis. `light`, `medium`, `spicy`, `tambah keju`, `ayam paha` | Nabila | |
+| menu_options | `name` | TEXT | Nama opsi | NOT NULL. Mis. `Light`, `Medium`, `Spicy`, `Tambah keju`, `Ayam paha` (sama dengan seed macymoo-fs) | Nabila | |
 | menu_options | `extra_price` | INTEGER | Harga tambahan saat ini (Rp) | NOT NULL, DEFAULT 0, CHECK ≥ 0. Mis. `3000` (tambah keju) | Nabila | Harga paha mengikuti harga pasar (KF 7) |
 
 ## 3. orders

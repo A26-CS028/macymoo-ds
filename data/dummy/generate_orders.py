@@ -48,11 +48,11 @@ MENUS = [(1, "Mackster", 35000), (2, "Nutrimac", 37000), (3, "Wraphoria", 27000)
 MENU_WEIGHTS = [0.25, 0.20, 0.35, 0.20]
 # KF 7. Harga paha mengikuti harga pasar; Rp2.000 hanya angka dummy.
 OPTION_GROUPS = {
-    "pedas": [("light", 0), ("medium", 0), ("spicy", 0)],
-    "keju": [("tambah keju", 3000)],
-    "ayam": [("ayam dada", 0), ("ayam paha", 2000)],
-    "tanpa_makaroni": [("tanpa makaroni", 0)],
-    "tanpa_brokoli": [("tanpa brokoli", 0)],
+    "pedas": [("Light", 0), ("Medium", 0), ("Spicy", 0)],
+    "keju": [("Tambah keju", 3000)],
+    "ayam": [("Ayam dada", 0), ("Ayam paha", 2000)],
+    "tanpa_makaroni": [("Tanpa makaroni", 0)],
+    "tanpa_brokoli": [("Tanpa brokoli", 0)],
 }
 MENU_GROUPS = {
     1: ["pedas", "keju"],
@@ -226,7 +226,7 @@ def generate(rng):
                 # Sebagian dibayar lewat batas 4 jam tapi tetap dilanjutkan (KF 6: hanya tanda).
                 t += hours(rng, 4.5, 12) if r < 0.15 else hours(rng, 0.2, 3.5)
                 if rng.random() < 0.25:
-                    pay("dp", t, round(total * 0.5, -3), to="diproses")
+                    pay("dp", t, round(total // 2, -3), to="diproses")
                 else:
                     pay("pelunasan", t, total, to="diproses")
 
