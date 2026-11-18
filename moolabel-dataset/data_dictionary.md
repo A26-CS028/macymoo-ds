@@ -151,6 +151,6 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 | Versi | Tanggal | Perubahan |
 |---|---|---|
 | v1 | 12 Nov 2026 | Dataset awal dari 96 template, mengikuti kesepakatan label v0.2. 477 catatan (316 train, 161 test). Catatan tulisan anggota belum dimasukkan |
-| v2 | 16 Nov 2026 | Mengikuti kesepakatan label v0.3 (8 label sama dengan v0.2). Tambah 6 template untuk `saus_terpisah`, `kemasan`, `alat_makan` (T97–T102) dan 63 catatan tulisan anggota (`M01`–`M04`). 540 catatan (316 train, 224 test). Tiga catatan pertanyaan estimasi waktu tiba ("jam berapa sampai?") tidak dimasukkan karena bukan permintaan waktu Data uji dibekukan Rabu 18 Nov 2026, 20.00 WIB; perubahan sesudahnya masuk v3 |
+| v2 | 16 Nov 2026 | Mengikuti kesepakatan label v0.3 (8 label sama dengan v0.2). Tambah 6 template untuk `saus_terpisah`, `kemasan`, `alat_makan` (T97–T102) dan 63 catatan tulisan anggota (`M01`–`M04`). 540 catatan (316 train, 224 test). Tiga catatan pertanyaan estimasi waktu tiba ("jam berapa sampai?") tidak dimasukkan karena bukan permintaan waktu. Data uji dibekukan Rabu 18 Nov 2026, 20.00 WIB; perubahan sesudahnya masuk v3 |
 
 Perubahan label atau format membuat versi file baru (`moolabel_v3.csv` dan seterusnya); file lama tidak ditimpa.
