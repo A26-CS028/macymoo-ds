@@ -82,8 +82,8 @@ Satu file per versi, dengan kolom `split`. Versi baru dibuat sebagai file baru (
 
 | Lokasi | Path |
 |---|---|
-| Repo DS (sumber) | `moolabel-dataset/output/moolabel_v1.csv` |
-| Repo AI (salinan) | `data/moolabel/moolabel_v1.csv`; versi dan commit asal dicatat di README AI |
+| Repo DS (sumber) | `moolabel-dataset/output/moolabel_v2.csv` |
+| Repo AI (salinan) | `data/moolabel/moolabel_v2.csv`; versi dan commit asal dicatat di README AI |
 
 | Kolom | Isi |
 |---|---|
