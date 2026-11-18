@@ -133,7 +133,7 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 | Item | Status |
 |---|---|
 | Dataset dari template | Selesai, lolos validasi |
-| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | Selesai: 63 catatan dari Baskara, Darnel, dan Rama (`M02`–`M04`) ditambah `M01`; lolos validasi |
+| Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | Selesai: 63 catatan dari empat penulis di luar tim AI: Daffa (`M01`), Baskara (`M02`), Darnel (`M03`), Rama (`M04`); lolos validasi
 | Cek ulang 20 baris acak oleh DS (Baskara) | **Belum** |
 | Serah terima ke AI Engineer | Menunggu cek ulang 20 baris dan pembekuan data uji (Rabu 18 Nov 2026, 20.00 WIB) |
 
