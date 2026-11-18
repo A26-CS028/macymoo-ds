@@ -223,3 +223,9 @@ data/raw/
 node_modules/
 .venv/
 .ipynb_checkpoints/
+
+# Hasil olahan dari invoice asli (jangan di-commit)
+data/processed/invoice*
+data/interim/
+invoice/
+*.pdf
