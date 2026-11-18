@@ -270,13 +270,13 @@ Sesuai kesepakatan label v0.3 dengan AI Engineer (dikonfirmasi Nabila). Urutan s
 
 ## 22. Dataset MooLabel (`moolabel_v1.csv`)
 
-File dataset, bukan tabel database. **Seluruh isi sintetis.** Rincian lengkap di `moolabel_documentation.md`.
+File dataset, bukan tabel database. **Seluruh isi sintetis.** Rincian lengkap dan versi terbaru (v2) di `moolabel-dataset/data_dictionary.md`.
 
 | Table | Field | Data type | Description | Example/constraint | Source/relationship | Notes |
 |---|---|---|---|---|---|---|
 | moolabel_v1 | `note_id` | integer | Nomor urut catatan | Unik. Mis. `1` | `generate.py` | |
 | moolabel_v1 | `note` | string | Teks catatan mentah | Tidak kosong, bukan "-". Mis. `"sausnya dipisah ya kak"` | Template atau tulisan anggota | Padanan `order_items.note` |
-| moolabel_v1 | `template_id` | string | Sumber pola catatan | `T01`–`T96` = template; `M01`, `M02`, … = tulisan anggota | `templates_v1.csv` | Satu `template_id` hanya di satu split |
+| moolabel_v1 | `template_id` | string | Sumber pola catatan | `T01`–`T96` = template; `M01`, `M02`, … = tulisan anggota | `moolabel-dataset/templates.csv` | Satu `template_id` hanya di satu split |
 | moolabel_v1 | `split` | string | Pembagian data | `train` atau `test` | Ditentukan per template | `M##` selalu `test` |
 | moolabel_v1 | `saus_terpisah` … `titip_antar` | integer | 8 kolom label biner | 0 atau 1; urutan seperti bagian 17 | Aturan anotasi kesepakatan v0.3 | Padanan baris di `order_item_labels` |
 
