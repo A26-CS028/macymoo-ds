@@ -11,6 +11,7 @@ Jalankan dari root repository:  python3 moolabel-dataset/generate.py
 """
 import csv
 import random
+import sys
 from pathlib import Path
 
 SEED = 42
@@ -294,12 +295,18 @@ def generate():
 
 
 def write_csv(path, rows):
-    with open(path, "w", encoding="utf-8", newline="") as f:
-        f.write(",".join(["note_id", "note", "template_id", "split", *LABELS]) + "\n")
-        for r in rows:
-            note = '"' + r["note"].replace('"', '""') + '"'
-            flags = ",".join("1" if lab in r["labels"] else "0" for lab in LABELS)
-            f.write(f'{r["note_id"]},{note},{r["template_id"]},{r["split"]},{flags}\n')
+    lines = [",".join(["note_id", "note", "template_id", "split", *LABELS])]
+    for r in rows:
+        note = '"' + r["note"].replace('"', '""') + '"'
+        flags = ",".join("1" if lab in r["labels"] else "0" for lab in LABELS)
+        lines.append(f'{r["note_id"]},{note},{r["template_id"]},{r["split"]},{flags}')
+    content = "\n".join(lines) + "\n"
+    # Versi yang sudah dibagikan tidak boleh berubah; menjalankan ulang dengan seed yang sama tetap boleh.
+    if path.exists():
+        if path.read_text(encoding="utf-8") == content:
+            return
+        sys.exit(f"{path.name} sudah ada dan isinya akan berubah. Naikkan VERSION, jangan timpa versi lama.")
+    path.write_text(content, encoding="utf-8", newline="")
 
 
 def main():
