@@ -228,4 +228,4 @@ node_modules/
 data/processed/invoice*
 data/interim/
 invoice/
-*.pdf
+data/**/*.pdf
