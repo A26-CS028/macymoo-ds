@@ -2,7 +2,7 @@
 
 Jalankan dari root repository:  streamlit run streamlit/app.py
 Sumber: data/dummy/*_dummy.csv (DATA DUMMY). Aturan omzet sama dengan
-notebooks/02_pertanyaan_bisnis.ipynb: tanpa ongkir, tanpa pesanan dibatalkan,
+notebooks/02_pertanyaan_bisnis.ipynb: tanpa ongkir, hanya pesanan diproses dan selesai,
 minggu Senin–Minggu dari deliveries.delivery_date. Tidak menampilkan data pribadi.
 """
 from pathlib import Path
@@ -36,7 +36,7 @@ st.title("Rekap omzet macyMOO")
 st.warning("**DATA DUMMY**: bukan pesanan asli. Prototipe lokal, tidak di-deploy.")
 
 kirim = load_rekap()
-valid = kirim[kirim["status"] != "dibatalkan"]
+valid = kirim[kirim["status"].isin(["diproses", "selesai"])]
 
 lo, hi = kirim["delivery_date"].min().date(), kirim["delivery_date"].max().date()
 with st.sidebar:

@@ -56,7 +56,7 @@ Satu baris per pesanan.
 | orders | `customer_name` | TEXT | Nama pelanggan | Opsional | Form / MacLab | **PII**. NULL setelah Anonimkan |
 | orders | `phone` | TEXT | Nomor HP pelanggan | Opsional, ber-index | Form / MacLab | **PII**. NULL setelah Anonimkan |
 | orders | `source` | TEXT | Asal pesanan | NOT NULL, CHECK `web_form`, `admin_form` | Backend | `admin_form` = MacLab |
-| orders | `status` | TEXT | Status pesanan | NOT NULL, DEFAULT `menunggu_konfirmasi`, CHECK `menunggu_konfirmasi`, `menunggu_pembayaran`, `diproses`, `selesai`, `dibatalkan` | Backend / Nabila | `dibatalkan` tidak dihitung omzet |
+| orders | `status` | TEXT | Status pesanan | NOT NULL, DEFAULT `menunggu_konfirmasi`, CHECK `menunggu_konfirmasi`, `menunggu_pembayaran`, `diproses`, `selesai`, `dibatalkan` | Backend / Nabila | Omzet hanya dari `diproses` dan `selesai` |
 | orders | `pay_timing` | TEXT | Pilihan waktu bayar | NOT NULL, DEFAULT `di_muka`, CHECK `di_muka`, `setelah_kirim` | Form / Nabila | KF 4 |
 | orders | `pay_status` | TEXT | Status bayar (ringkasan) | NOT NULL, DEFAULT `belum_bayar`, CHECK `belum_bayar`, `dp`, `lunas`, `dikembalikan` | Backend | Sumber kebenaran tetap `payments` |
 | orders | `discount` | INTEGER | Potongan harga pesanan (Rp) | NOT NULL, DEFAULT 0, CHECK ≥ 0 | Nabila | |
@@ -245,7 +245,7 @@ Sesuai kesepakatan label v0.3 dengan AI Engineer (dikonfirmasi Nabila). Urutan s
 | Pembayaran bersih | `SUM(amount dp + pelunasan) − SUM(amount refund)` |
 | Sisa tagihan | `total pesanan − pembayaran bersih` |
 | Lewat batas bayar | `pay_timing = 'di_muka'`, `invoice_sent_at + 4 jam < now()`, dan pembayaran bersih = 0 (KF 6) |
-| Omzet | Hanya pesanan dengan `status <> 'dibatalkan'` |
+| Omzet | Hanya pesanan dengan `status IN ('diproses', 'selesai')` |
 
 **Hindari hitung ganda:** agregasi `order_item_options`, `order_item_labels`, `payments`, dan `deliveries` per tabel dulu (CTE/subquery) sebelum di-join ke `orders`. Hitung pembatalan dari `orders.status = 'dibatalkan'`, bukan dari jumlah event.
 
