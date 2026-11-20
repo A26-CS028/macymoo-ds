@@ -19,7 +19,7 @@ Berisi analisis data pesanan dan pembuat dataset MooLabel.
 
 Alur di `moolabel-dataset/`:
 
-1. `templates.csv` berisi `template_id, kalimat, label`.
+1. `templates.csv` berisi `template_id, split, labels, pattern`.
 2. `generate.py` membuat parafrase dari template dengan random seed tetap.
 3. `validate.py` memeriksa kebocoran train/test dan contoh positif per label.
 4. Hasil ada di `output/moolabel_v2.csv` (v1 tetap disimpan).

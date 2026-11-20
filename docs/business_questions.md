@@ -3,7 +3,7 @@
 Sumber:
 - 11 invoice asli (`invoice/`, Agustus–Oktober 2026). Detailnya ada di `invoice_review_notes.md`.
 - *macymoo: Keputusan Final Fitur* (rapat 4 November 2026, versi 12 November 2026), disingkat **KF** (`docs/macymoo_Keputusan_Final.md`). Angka di belakang KF adalah nomor bagian.
-- Nama tabel dan kolom aplikasi mengikuti data dictionary v1.2 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack.
+- Nama tabel dan kolom aplikasi mengikuti data dictionary v1.3 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack.
 
 Rencana data menurut KF 9.5: analisis memakai **11 invoice asli (dianonimkan) dan data dummy**. Pertanyaan yang tidak bisa dijawab dari invoice nantinya dijawab dari data aplikasi atau data dummy yang diberi label jelas sebagai dummy, bukan dari asumsi.
 
@@ -20,7 +20,7 @@ Rencana data menurut KF 9.5: analisis memakai **11 invoice asli (dianonimkan) da
 - **Tujuan:** mengetahui menu andalan di antara 4 menu (Mackster Rp35rb, Nutrimac Rp37rb, Wraphoria Rp27rb, Mac Bites Rp25rb — KF 3).
 - **Metrik (usulan DS 1, konfirmasi DS 2):** omzet kotor per menu per minggu = Σ(`unit_price` × `quantity`) + Σ(`extra_price` opsi × `quantity`). Juga share omzet per menu (%).
   - Diskon **tidak** dikurangkan, karena diskon hanya tercatat per pesanan (`orders.discount`) dan tidak bisa dibagi ke menu.
-  - Ongkir tidak dihitung, dan pesanan Dibatalkan tidak dihitung (KF 9.5).
+  - Ongkir tidak dihitung; hanya pesanan Diproses dan Selesai yang dihitung (KF uji 15).
   - Item tanpa `menu_id` (bundling, bonus, kolaborasi, item bebas seperti "Nutrimac Small") dikelompokkan sebagai **"Lainnya"**, tidak masuk ranking 4 menu.
   - Minggu = Senin–Minggu berdasarkan `deliveries.delivery_date` (lihat D02).
 - **Kolom:** menu, varian, qty, harga satuan, total baris, harga tambahan opsi, tanggal kirim, jenis item (menu/bundling/bonus/kolaborasi/item bebas).

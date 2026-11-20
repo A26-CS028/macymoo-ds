@@ -172,7 +172,7 @@ EXTRA_SINGLE = [
     ("alat_makan", "test", "aku bawa alat makan sendiri, ga usah dikasih {kak}"),
 ]
 
-# Jumlah baris per kelompok (total sekitar 470, sesuai kesepakatan bagian 7).
+# Jumlah baris per kelompok (sesuai kesepakatan bagian 7).
 ROWS = {
     ("single", "train"): 22,  # per label
     ("single", "test"): 12,   # per label
