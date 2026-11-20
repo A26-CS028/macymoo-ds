@@ -1,4 +1,5 @@
 pandas>=2.2
+tzdata
 matplotlib>=3.8
 jupyter
 streamlit>=1.50
