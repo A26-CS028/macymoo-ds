@@ -134,8 +134,8 @@ Validator juga diuji dengan data yang sengaja dirusak (template bocor, catatan "
 |---|---|
 | Dataset dari template | Selesai, lolos validasi |
 | Catatan tulisan anggota di luar tim AI (min. 5 per label, semua test) | Selesai: 63 catatan dari empat penulis di luar tim AI: Daffa (`M01`), Baskara (`M02`), Darnel (`M03`), Rama (`M04`); lolos validasi
-| Cek ulang 20 baris acak oleh DS (Baskara) | **Belum** |
-| Serah terima ke AI Engineer | Menunggu cek ulang 20 baris dan pembekuan data uji (Rabu 18 Nov 2026, 20.00 WIB) |
+| Cek ulang 20 baris acak oleh DS (Baskara) | **Belum.** Sampel v2 ada di `recheck_20_v2.csv` (dibuat `recheck_sample.py`, seed 20261120), menunggu isian Baskara. `recheck_20.csv` adalah cek ulang v1 (20/20 setuju); hanya 6 barisnya yang masih ada di v2 |
+| Serah terima ke AI Engineer | Data uji v2 dibekukan 18 Nov 2026 (`3bf5980`) dan sudah dipakai macymoo-ai PR #22, sebelum cek ulang v2 selesai |
 
 ## 11. Keterbatasan dan risiko bias
 
