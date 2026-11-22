@@ -1,6 +1,6 @@
 # Invoice Review Notes — DS 1 Minggu 1
 
-Sumber: folder `invoice/` (11 file PDF, periode 1 Agustus – 20 Oktober 2026). Harga pembanding diambil dari menu list di *Keputusan Final* (KF) bagian 3 (`docs/macymoo_Keputusan_Final.md`).
+Sumber: folder `invoice/` (11 file PDF, periode 1 Agustus – 20 Oktober 2026). Harga pembanding diambil dari menu list di *Keputusan Final* (KF) bagian 3 (dokumen tim, di luar repo).
 
 ## Metode
 
