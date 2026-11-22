@@ -14,6 +14,7 @@ Berisi analisis data pesanan dan pembuat dataset MooLabel.
 | `moolabel-dataset/` | Template, pembuat, dan validator dataset MooLabel |
 | `streamlit/` | Dasbor lokal, tidak di-deploy |
 | `reports/` | `temuan_rekomendasi.md` |
+| `docs/` | Kamus data (`data_dictionary.md`), aturan dan keterbatasan data termasuk definisi omzet D01/D02 (`data_limitation_log.md`), pertanyaan bisnis, review ERD dan invoice |
 
 ## Dataset MooLabel
 
