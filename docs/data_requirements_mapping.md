@@ -1,6 +1,6 @@
 # Data Requirements Mapping — DS 1 Minggu 1
 
-Status "Tersedia?" adalah hasil pemeriksaan 11 invoice (`invoice_review_notes.md`). Nama tabel di kolom "Sumber di aplikasi" mengikuti data dictionary v1.2 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack. KF = *Keputusan Final* (dokumen tim, di luar repo); angka di belakangnya adalah nomor bagian.
+Status "Tersedia?" adalah hasil pemeriksaan 11 invoice (`invoice_review_notes.md`). Nama tabel di kolom "Sumber di aplikasi" mengikuti data dictionary v1.3 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack. KF = *Keputusan Final* (dokumen tim, di luar repo); angka di belakangnya adalah nomor bagian.
 
 | Pertanyaan | Kolom/atribut yang dibutuhkan | Tersedia di invoice? | Sumber di aplikasi | Catatan |
 |---|---|---|---|---|

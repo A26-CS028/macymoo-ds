@@ -189,7 +189,7 @@ Lewat batas bayar tidak dicatat sebagai event; dihitung dari `orders.invoice_sen
 | Table | Field | Data type | Description | Example/constraint | Source/relationship | Notes |
 |---|---|---|---|---|---|---|
 | closed_dates | `id` | INTEGER | Identitas | PK, identity | Sistem | |
-| closed_dates | `closed_date` | DATE | Tanggal tutup (tidak menerima kirim) | NOT NULL, UNIQUE | Nabila | Jadwal kuliah Nabila |
+| closed_dates | `closed_date` | DATE | Tanggal tutup (tidak menerima kirim) | NOT NULL, UNIQUE | Nabila | Tanggal Nabila tidak bisa masak |
 | closed_dates | `reason` | TEXT | Alasan tutup | Opsional | Nabila | |
 
 ## 14. settings

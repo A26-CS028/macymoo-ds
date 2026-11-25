@@ -205,7 +205,7 @@ Full-Stack mengirim `001_init.sql` revisi (15 tabel, 88 kolom). Header file meny
 
 **Jawaban atas pertanyaan bagian 8:** (1) header baru menyebut skema direvisi sesuai catatan review DS; (5) tipe uang menjadi `INTEGER`; (6) nilai status sudah dibakukan lewat CHECK; (7) `role` dihapus. Pertanyaan 2 (apakah migrasi sudah dijalankan di Neon) belum terjawab; header menyatakan skrip "dijalankan sekali, di database kosong".
 
-**Isu yang masih terbuka**
+**Isu yang masih terbuka** (per 10 Nov; ditutup di bagian 11)
 1. Daftar nilai `order_events.event_type` belum ada. Pertanyaan bisnis 3 membutuhkannya untuk membedakan jadwal ulang dan pembatalan.
 2. Usulan kecil: tambah `CHECK (item_type <> 'menu' OR menu_id IS NOT NULL)`, karena CHECK yang ada masih meloloskan item bertipe `menu` tanpa `menu_id` asal `custom_name` terisi.
 3. `order_item_options.extra_price` bernilai default 0. Backend wajib menyalin harga saat pesan; perlu diuji.
@@ -218,7 +218,7 @@ Full-Stack mengirim `001_init.sql` revisi (15 tabel, 88 kolom). Header file meny
 | Review ERD telah dilakukan | Selesai |
 | Masukan disampaikan ke Full-Stack | Sudah (10 Nov 2026), disertai file ini |
 | Tanggapan Full-Stack | Sudah: SQL direvisi; 15 dari 18 temuan selesai, 1 sebagian, 2 tidak diubah atau terbuka (prioritas rendah) |
-| Isu terbuka | `event_type`, saran CHECK `item_type`, T13, T16 |
+| Isu terbuka | Ditutup 12 Nov (bagian 11); T13 dan T16 diterima sebagai keterbatasan |
 | Data dictionary mengikuti SQL revisi | Sudah (v0.4, 88 kolom) |
 | Persetujuan akhir Full-Stack atas SQL revisi | Menunggu konfirmasi tertulis dari Full-Stack |
 

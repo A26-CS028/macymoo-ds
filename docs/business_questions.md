@@ -2,7 +2,7 @@
 
 Sumber:
 - 11 invoice asli (`invoice/`, Agustus–Oktober 2026). Detailnya ada di `invoice_review_notes.md`.
-- *macymoo: Keputusan Final Fitur* (rapat 4 November 2026, versi 12 November 2026), disingkat **KF** (dokumen tim, di luar repo). Angka di belakang KF adalah nomor bagian.
+- *macymoo: Keputusan Final Fitur* (rapat 4 November 2026, versi 18 November 2026), disingkat **KF** (dokumen tim, di luar repo). Angka di belakang KF adalah nomor bagian.
 - Nama tabel dan kolom aplikasi mengikuti data dictionary v1.3 (DS 2, dari skema final `001_init.sql`), berdasarkan ERD yang disetujui Full-Stack.
 
 Rencana data menurut KF 9.5: analisis memakai **11 invoice asli (dianonimkan) dan data dummy**. Pertanyaan yang tidak bisa dijawab dari invoice nantinya dijawab dari data aplikasi atau data dummy yang diberi label jelas sebagai dummy, bukan dari asumsi.
@@ -56,7 +56,7 @@ Rencana data menurut KF 9.5: analisis memakai **11 invoice asli (dianonimkan) da
 
 - **Tujuan:** memantau tagihan terbuka. Bayar setelah kirim diizinkan untuk pelanggan tertentu (KF 4).
 - **Metrik:** jumlah dan nilai tagihan dengan status bayar Belum Bayar atau DP, sisa tagihan, dan umur tagihan (dihitung dari `invoice_sent_at`).
-- **Definisi (KF 4–5, Final):** status bayar = Belum Bayar / DP / Lunas / Dikembalikan. Pesanan Selesai dengan status Belum Bayar = tagihan terbuka. Sisa tagihan memakai rumus Sisa tagihan di data dictionary bagian 18 (grand total − pembayaran bersih).
+- **Definisi (KF 4–5, Final):** status bayar = Belum Bayar / DP / Lunas / Dikembalikan. Tagihan terbuka = `invoice_sent_at` terisi, pesanan tidak dibatalkan, dan status bayar Belum Bayar atau DP (notebook 03). Sisa tagihan memakai rumus Sisa tagihan di data dictionary bagian 18 (grand total − pembayaran bersih).
 - **Keterbatasan invoice:** hanya MYM-KPZ yang berstatus "Lunas / Final". 10 invoice lain tidak memiliki data pembayaran. Sumber datanya adalah `orders` dan `payments` di aplikasi, atau data dummy. Tabel `invoices` tidak menyimpan nominal.
 
 ## Q5. Opsi kustom apa yang paling sering diminta? — ❌
