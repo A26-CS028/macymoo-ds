@@ -71,7 +71,7 @@ CANCEL_REASONS = {
     "menunggu_konfirmasi": ["Tanggal kirim penuh (dummy)", "Pelanggan minta batal (dummy)"],
     "menunggu_pembayaran": ["Pelanggan minta batal (dummy)"],
 }
-RESCHEDULE_REASONS = ["Jadwal kuliah Nabila padat (dummy)", "Bahan belum tersedia (dummy)"]
+RESCHEDULE_REASONS = ["Jadwal masak bentrok (dummy)", "Bahan belum tersedia (dummy)"]
 
 
 class LewatNow(Exception):
