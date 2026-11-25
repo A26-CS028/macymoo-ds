@@ -1,7 +1,7 @@
 # Data Limitation & Clarification Log — DS 1 Minggu 1
 
 Cakupan: hanya 11 invoice asli (Agustus–Oktober 2026). Keterbatasan di bawah adalah kondisi bawaan data lama yang dibuat manual sebelum sistem ada, bukan kesalahan pemeriksaan.
-KF = *Keputusan Final* (dokumen tim di luar repo, versi 12 November 2026); angka di belakangnya adalah nomor bagian. ID dipakai agar mudah dirujuk di diskusi tim.
+KF = *Keputusan Final* (dokumen tim di luar repo, versi 18 November 2026); angka di belakangnya adalah nomor bagian. ID dipakai agar mudah dirujuk di diskusi tim.
 
 ## A. Data yang tidak tersedia
 

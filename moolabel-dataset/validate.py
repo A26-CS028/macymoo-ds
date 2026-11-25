@@ -51,6 +51,13 @@ te = {norm(r["note"]) for r in rows if r["split"] == "test"}
 check(not tr & te, f"Tidak ada catatan sama di train dan test ({len(tr & te)} duplikat)")
 check(all(r["template_id"][0] == "T" or r["split"] == "test" for r in rows), "Catatan tulisan anggota (M##) hanya di test")
 
+with open(path.parent.parent / "templates.csv", encoding="utf-8") as f:
+    tpl = {t["template_id"]: t for t in csv.DictReader(f)}
+beda = [r["note_id"] for r in rows if r["template_id"] in tpl and (
+    {lab for lab in LABELS if r[lab] == "1"} != {lab.strip() for lab in tpl[r["template_id"]]["labels"].split("+")} - {"(tidak berlabel)"}
+    or r["split"] != tpl[r["template_id"]]["split"])]
+check(not beda, f"Label dan split sama dengan templates.csv{' (beda: ' + ', '.join(beda[:10]) + ')' if beda else ''}")
+
 print("\nJumlah positif per label:")
 pos = {s: Counter() for s in ("train", "test")}
 tmpl = {s: defaultdict(set) for s in ("train", "test")}

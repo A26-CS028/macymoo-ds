@@ -7,7 +7,7 @@ Sumber: folder `invoice/` (11 file PDF, periode 1 Agustus – 20 Oktober 2026). 
 - Setiap PDF dibuka dan dibaca manual satu per satu (teks + tampilan halaman). Tidak ada ekstraksi otomatis.
 - Kunci telusur utama adalah **nomor invoice**. Nama file asli tidak dicantumkan karena sebagian memuat nama pelanggan (F09); dokumen dicari lewat nomor invoice yang tercetak di dalamnya.
 - Nilai ditulis persis seperti tercetak di invoice. Hal yang tidak tercetak ditulis "tidak tercatat", tidak ditebak.
-- Anonimisasi: `C01` = pelanggan kafe B2B (10 dari 11 invoice ditujukan ke sana), `C02` = pelanggan perorangan/grup dengan tujuan sekolah. Nama, nomor HP, dan alamat pelanggan tidak ditulis.
+- Anonimisasi: `C01` = pelanggan kafe B2B (10 dari 11 invoice ditujukan ke sana), `C02` = pelanggan perorangan/grup. Nama, nomor HP, dan alamat pelanggan tidak ditulis.
 
 ## 1. Inventaris
 
@@ -32,7 +32,7 @@ Sumber: folder `invoice/` (11 file PDF, periode 1 Agustus – 20 Oktober 2026). 
 - **Format nomor:** `INV/YYYYMMDD/<KODE>/<NNN>`. Tanggal di nomor selalu sama dengan field "Tanggal".
 - **WPH** (header "WRAPHORIA"): 001–008. **MCM** (header "MAC YOR MOO"): 010–011. Nomor urut **berlanjut lintas kode** (WPH/008 lalu MCM/010).
 - **Nomor 009 tidak ada** di dataset. Belum diketahui apakah invoice-nya hilang, batal, atau nomornya dilewati.
-- **MYM-KPZ** (header "MACYOURMOO X KOPIAZA", kolaborasi) **tidak punya nomor urut** dan memakai template yang berbeda.
+- **MYM-KPZ** (header kolaborasi dengan mitra) **tidak punya nomor urut** dan memakai template yang berbeda.
 - **Revisi:** `WPH/007-v3` berarti ada v1 dan v2 yang tidak ada di dataset. Isi revisi sebelumnya tidak diketahui.
 - C01 ditagih dengan kode WPH sampai September, lalu dengan kode MCM mulai Oktober, untuk produk dan harga yang sama.
 
